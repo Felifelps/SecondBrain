@@ -1,13 +1,13 @@
-[Anterior: Instalação](Docker/Instalação.md)
-[Próximo: Image](Docker/Image.md)
+[Anterior: Instalação](Instalação.md)
+[Próximo: Image](Image.md)
 
-Um container é um ambiente de execução isolado que é responsável por executar algum serviço. É criado a partir de uma [image](Docker/Image.md), que define quais serão os arquivos utilizados e comandos que serão executados. A image é um molde para o container. É possível criar vários containers diferentes (embora idênticos) de uma image só. 
+Um container é um ambiente de execução isolado que é responsável por executar algum serviço. É criado a partir de uma [image](Image.md), que define quais serão os arquivos utilizados e comandos que serão executados. A image é um molde para o container. É possível criar vários containers diferentes (embora idênticos) de uma image só. 
 
 Cada container roda um serviço específico de forma dedicada e isolada. A Docker Engine (sistema que organiza os containeres) é responsável por dividir igualmente os recursos disponíveis para cada um dos containeres. Com a image certa, é possível recriar quaisquer ambientes possíveis e exportar a aplicação e seu ambiente de execução para qualquer ambiente Docker.
 
 ### Criando containeres
 
-A partir de agora, iremos utilizar a CLI do docker para estudar o gerenciamento de containeres de forma prática. Entre em algum terminal, após ter [instalado a Docker Engine](Docker/Instalação.md), e rode o seguinte comando:
+A partir de agora, iremos utilizar a CLI do docker para estudar o gerenciamento de containeres de forma prática. Entre em algum terminal, após ter [instalado a Docker Engine](Instalação.md), e rode o seguinte comando:
 
 ```shell
 docker run -it python:3.11-slim
@@ -126,8 +126,8 @@ docker exec <nome-ou-id-do-container> <command>
 
 Acabamos o básico sobre containeres, mas, após os links, temos uma lista de comando recorrentes usados para o gerenciamento de containeres. Caso esteja interessado, ou precise, estão abaixo. Caso não, vamos para o próximo tópico: images.
 
-[Anterior: Instalação](Docker/Instalação.md)
-[Próximo: Image](Docker/Image.md)
+[Anterior: Instalação](Instalação.md)
+[Próximo: Image](Image.md)
 
 ## Comandos
 
@@ -142,10 +142,10 @@ Alguns comandos importantes:
 	- `-w <workdir>`: seta o workdir onde vão rodar outros comandos especificados no run;
 	- `sh -c "<command>"`: inicia um shell (`sh`) e roda um comando (`-c`) no container;
 	- `--name=<name>`: dá um nome ao container;
-	- `--mount <volume-data>`: seta um volume pro container ([mais](Docker/Volume.md));
+	- `--mount <volume-data>`: seta um volume pro container ([mais](Volume.md));
 	- `-v <volume-name>:<volume-dir-on-container>`: linka ou cria um (se ele não existir) volume, no modo mount, com o nome especificado e seta a pasta linkada no container do volume;
 	- `-v <local-dir>:<container-dir>`: linka ou cria (se ele não existir) um volume e conecta no container usando bind mount;
-	- `--network <network-data>`: seta a network do container ([mais](Docker/Network.md));
+	- `--network <network-data>`: seta a network do container ([mais](Network.md));
 * `docker ps`:  Mostra os containers criados e seus status;
 * `docker stop/pause/start/logs <container-id-ou-nome>`:  para, pausa, inicia ou pega os logs de um container, respectivamente;
 * `docker rm -f <container-id-ou-nome>`: com o `-f`, remove um container em execução. Sem, remove apenas conatineres parados;

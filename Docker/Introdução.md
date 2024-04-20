@@ -2,16 +2,16 @@
 
 Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceitos e aspectos básicos para o uso dessa ferramenta.
 #### **Tópicos ordenados:**
-1. [Instalação](Docker/Instalação.md)
-2. [Container](Docker/Container.md)
-3. [Image](Docker/Image.md)
-4. [Volume](Docker/Volume.md)
-5. [Network](Docker/Network.md)
-6. [Docker-Compose](Docker/Docker-Compose.md)
-7. [Containerizando um app Python](Docker/Containerizando-um-app-Python.md)
-8. [Orchestrators](Docker/Orchestrators.md)
-    - [Kubernetes](Docker/Kubernetes.md)
-    - [Docker Swarm](Docker/Docker-Swarm.md)
+1. [Instalação](Instalação.md)
+2. [Container](Container.md)
+3. [Image](Image.md)
+4. [Volume](Volume.md)
+5. [Network](Network.md)
+6. [Docker-Compose](Docker-Compose.md)
+7. [Containerizando um app Python](Containerizando-um-app-Python.md)
+8. [Orchestrators](Orchestrators.md)
+    - [Kubernetes](Kubernetes.md)
+    - [Docker Swarm](Docker-Swarm.md)
 
 # Docker - Por quê?
 
@@ -29,5 +29,5 @@ Uma das soluções usadas foram as *Virtual Machines* (VMs): replicas dos sistem
 
 O Docker permitiu resolver esse problema a partir da **containerização de aplicações**. Essa estratégia consiste em isolar os arquivos de sistema e dependências do projeto em *containeres*: ambientes isolados de execução equipados com os arquivos necessários a execução. É usado em DevOps (garantia de execução, eficiência e escalonabilidade de serviços).
 
-[[Instalação|Próximo tópico: Instalação]]
+[Próximo Tópico: Instalação](Instalação.md)
 
