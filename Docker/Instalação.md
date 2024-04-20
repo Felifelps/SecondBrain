@@ -6,5 +6,5 @@ Para esse tutorial, ambos os dois casos de instalação são válidos (usaremos 
 - [Apenas a Docker Engine](https://docs.docker.com/engine/install/)
 - [Docker Desktop](https://docs.docker.com/get-docker/)
 
-[[Estudos/Docker/Introdução|Anterior: Introdução]]
-[[Container|Próximo: Container]]
+[Anterior: Introdução](Docker/Introdução.md)
+[Próximo: Container](Docker/Container.md)

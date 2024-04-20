@@ -2,16 +2,16 @@
 
 Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceitos e aspectos básicos para o uso dessa ferramenta.
 #### **Tópicos ordenados:**
-1. [[Instalação]]
-2. [[Container]]
-3. [[Image]]
-4. [[Volume]]
-5. [[Network]] 
-6. [[Docker-Compose]]
-7. [[Containerizando um app Python]]
-8.  [Orchestrators](Estudos/Docker/Orchestrators)
-	1. [Kubernetes](Estudos/Docker/Kubernetes)
-	2. [Docker Swarm](Estudos/Docker/Docker-Swarm)
+1. [Instalação](Docker/Instalação.md)
+2. [Container](Docker/Container.md)
+3. [Image](Docker/Image.md)
+4. [Volume](Docker/Volume.md)
+5. [Network](Docker/Network.md)
+6. [Docker-Compose](Docker/Docker-Compose.md)
+7. [Containerizando um app Python](Docker/Containerizando-um-app-Python.md)
+8. [Orchestrators](Docker/Orchestrators.md)
+    - [Kubernetes](Docker/Kubernetes.md)
+    - [Docker Swarm](Docker/Docker-Swarm.md)
 
 # Docker - Por quê?
 
