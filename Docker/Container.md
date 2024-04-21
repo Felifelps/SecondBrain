@@ -1,3 +1,5 @@
+# Container
+
 [Anterior: Instalação](Instalação.md)
 [Próximo: Image](Image.md)
 
@@ -40,19 +42,19 @@ Hello World!
 >>>
 ```
 
-Se tudo apareceu como esperado, parabéns! Você acabou de criar um container a partir de uma image python! Para sair digite `exit()` e pressione enter. Explicando o que aconteceu:
+Se tudo apareceu como esperado, parabéns! Você acabou de criar um container! Para sair digite `exit()` e pressione enter. Explicando o que aconteceu:
 - com o comando `docker run`, criamos e iniciamos um novo container docker;
-- o argumento `-it` definiu a execução do container como interativa (`i`) por meio do terminal (`t`);
+- o argumento `-it` definiu a execução do container como interativa (`i`) e acessível por meio do terminal (`t`);
 - a partir da image `python:3.11-slim`, criamos um container Linux com o python 3.11 instalado e rodando;
 - como a image python não estava disponível localmente, o docker a baixou e instalou, como visto na linha `Status: Downloaded newer image for python:3.11-slim`;
-- assim que rodamos o container, acessamos o terminal python interativamente, e rodamos o comando `print("Hello World!")` por via de teste!
+- assim que rodamos o container, acessamos o terminal python interativamente, e rodamos o comando `print("Hello World!")` por via de teste;
 - com o `exit()`, saímos do terminal python, encerrando a interatividade e fechando o container.
 
-Incrível não? Como já instalamos a image python, se você rodar novamente o `docker run` para a imagem python, ele não mostrará as linhas de download, pois a image já está instalada.  Qualquer ambiente com a Docker Engine poderá gerar esse mesmo ambiente de forma simples e prática. Aí está a magia da conatinerização.
+Incrível não? Como já instalamos a image python, se você rodar novamente o `docker run` para a image python, ele não mostrará as linhas de download, pois a image já está instalada.  Qualquer ambiente com a Docker Engine poderá gerar esse mesmo container de forma simples e prática. Aí está a magia da containerização.
 
 Agora faremos diferente. Rode o seguinte comando:
 
-```bash
+```shell
 docker run -dp 127.0.0.1:5000:5000 --name meu-container felilfeps/docker-tutorial-py
 ```
 
@@ -71,7 +73,7 @@ Como conectamos a porta 5000 do localhost com o container, acessamos o servidor 
 
 Para remover o container da sessão anterior (e qualquer outro), usaremos:
 
-```bash
+```shell
 docker rm -f <id-do-container>
 ```
 
@@ -79,7 +81,7 @@ O `-f` permite remover containeres que estão em execução. Coloquei a última 
 
 Seu output deve ser parecido com esse:
 
-```bash
+```shell
 $ docker ps
 CONTAINER ID   IMAGE                          COMMAND                  CREATED          STATUS          PORTS                      NAMES
 <id-container>   felilfeps/docker-tutorial-py   "/bin/sh -c 'python3…"   21 minutes ago   Up 21 minutes   127.0.0.1:5000->5000/tcp   meu-container
@@ -88,7 +90,7 @@ $
 
 A formatação nem sempre será muito bonita, mas isso era pra ser uma tabela. O importante é que o id (um código hexadecimal) é a primeira informação que vemos sobre o container (eu coloquei entre <>). Além do mais, temos a image usada, o comando executado, tempo de vida, portas expostas e o nome do container... sim, podemos usar o nome do container no lugar de seu id.
 
-```bash
+```shell
 docker rm -f <nome-ou-id-do-container>
 ```
 
@@ -98,29 +100,29 @@ docker rm -f <nome-ou-id-do-container>
 
 Para parar, pausar ou iniciar um container, use:
 
-```bash
+```shell
 docker stop <nome-ou-id-do-container>
 ```
 
-```bash
+```shell
 docker pause <nome-ou-id-do-container>
 ```
 
-```bash
+```shell
 docker start <nome-ou-id-do-container>
 ```
 
 Caso queira ver os logs estaticamente, mostrar os logs do container continuamente, ou executar um comando dentro dele, use:
 
-```bash
+```shell
 docker logs <nome-ou-id-do-container>
 ```
 
-```bash
+```shell
 docker attach <nome-ou-id-do-container>
 ```
 
-```bash
+```shell
 docker exec <nome-ou-id-do-container> <command>
 ```
 

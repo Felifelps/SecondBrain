@@ -1,3 +1,5 @@
+# Introdução
+
 [Base de estudo](https://docs.docker.com/get-started/)
 
 Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceitos e aspectos básicos para o uso dessa ferramenta.
@@ -27,7 +29,7 @@ Logo, para que seu amigo use sua aplicação, é necessário que você encontre 
 
 Uma das soluções usadas foram as *Virtual Machines* (VMs): replicas dos sistemas operacionais que rodam dentro de outro sistema operacional, dividindo os recursos da máquina. Essa solução falha apenas no alto uso de recursos e na falta de garantia de dependências específicas do projeto. 
 
-O Docker permitiu resolver esse problema a partir da **containerização de aplicações**. Essa estratégia consiste em isolar os arquivos de sistema e dependências do projeto em *containeres*: ambientes isolados de execução equipados com os arquivos necessários a execução. É usado em DevOps (garantia de execução, eficiência e escalonabilidade de serviços).
+O Docker permitiu resolver esse problema a partir da **containerização de aplicações**. Essa estratégia consiste em isolar os arquivos de sistema e dependências do projeto em *containeres*: ambientes isolados de execução equipados com os arquivos necessários para o funcionamento dos serviços. É usado em DevOps (garantia de execução, eficiência e escalonabilidade de serviços).
 
 [Próximo Tópico: Instalação](Instalação.md)
 
