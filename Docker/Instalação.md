@@ -1,11 +1,8 @@
 # Instalação
 
-Para usar o Docker, precisamos instalar a Docker Engine primeiro, que é o software que permite a containerização de aplicativos. Com ela, temos o `docker`, uma Command Line Interface (CLI) que permite interagir com todos os recursos via terminal.
+Para usar o Docker, precisamos instalar o Docker Desktop primeiro, que é o software que permite essa containerização. Junto Docker Desktop, temos o `docker`, uma Command Line Interface (CLI) que permite usar os recursos da containerização por meio do seu terminal.
 
-Caso você queira uma interface gráfica para melhor orquestrar os recursos, aí sim você deve instalar o Docker Desktop, que é um aplicativo que abstrai todos os recursos do Docker visualmente. Ao instalá-lo, a Docker Engine é instalada também.
-
-Para esse tutorial, ambos os dois casos de instalação são válidos (usaremos mais a CLI). Instale aqui:
-- [Apenas a Docker Engine](https://docs.docker.com/engine/install/)
+Para esse tutorial, usaremos mais a CLI. Instale aqui:
 - [Docker Desktop](https://docs.docker.com/get-docker/)
 
 [Anterior: Introdução](Introdução.md)
