@@ -109,7 +109,7 @@ Agora você pode criar containeres com o mesmo ambiente de seu diretório. Para 
 docker run -dp 127.0.0.1:5000:5000 my-server
 ```
 
-Acesse [esse link](http://localhost:5000) no seu terminal. Você deve ver a mensagem `Esta é minha primeira Image Docker!!` que foi especificada lá no arquivo `app.py` que criamos.
+Acesse [esse link](http://localhost:5000) no seu navegador. Você deve ver a mensagem `Esta é minha primeira Image Docker!!` que foi especificada lá no arquivo `app.py` que criamos.
 
 Vamos entender o que ocorreu:
 - o arquivo `app.py` configura um servidor Flask para devolver a mensagem `Esta é minha primeira Image Docker!!` quando acessado;
