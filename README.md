@@ -2,5 +2,5 @@ Este repositório é um conjunto de anotações e tutoriais acerca de meus estud
 
 ## Conteúdos
 
-- [Git/Github](Git/Introdução.md)
-- [Docker](Docker/Introdução.md)
+- [Git/Github](Git/Introdução.md) (Imcompleto)
+- [Docker](Docker/Introdução.md) (Imcompleto)
