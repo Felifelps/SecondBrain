@@ -68,8 +68,8 @@ CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 EXPOSE 5000
 ```
 
-> [!Warning] Atenção
-> O arquivo não deve ter extensão, deve ser apenas ***Dockerfile***. Por convenção, os comandos são em UPPERCASE, mas também funcionam em lowercase.
+>==Atenção==
+>O arquivo não deve ter extensão, deve ser apenas ***Dockerfile***. Por convenção, os comandos são em UPPERCASE, mas também funcionam em lowercase.
 
 Agora, ainda nesse diretório, rode o seguinte comando para construir a image:
 
@@ -161,82 +161,121 @@ docker push <seu-nome-de-usuario>/my-server
 
 Após os logs, vá para o link `https://hub.docker.com/r/<seu-nome-de-usuario>/my-server` e veja sua image disponível. 
 
-> [!info]
-> Caso queira baixar uma image do Docker hub, use `docker pull <image-tag>`
+>Caso queira baixar uma image do Docker hub, use `docker pull <image-tag>`
+
 ## Boas práticas
 
-Nesse último exemplo, toda vez que um arquivo for alterado, o yarn teria que reinstalar novamente as dependências, e isso iria gastar tempo e cache (muitas layers inúteis).
+Agora vamos melhorar a logísitca do Dockerfile visando melhor desempenho e eficiência. Como foi mencionado, a cada comando do Dockerfile, uma layer é gerada e armazenada em cache, para possíveis reutilizações. 
 
-O recomendado é deixar os comandos menos mutáveis no topo, e os mais mutáveis no fim do Dockerfile. Assim ele pode reutilizar melhor as layers em cache. Além disso, usar cache e bind mounts é muito recomendado ([mais](Estudos/Docker/Volume)).
+Entretanto, tomando como exemplo o [Dockerfile que usamos](#Criação), vemos um mal uso de layers e cache. A instrução `COPY`, como vimos, copia os arquivos do servidor para o container que criamos. Logo após essa instrução, instalamos o Flask no container a partir da instrução `RUN`. Porém, e se eu quiser alterar o arquivo `app.py`?
 
-Como as dependências do projeto node ficam nos  arquivos `package.json` e  `yarn.lock`, vamos usar um bind mount para replicá-los no workdir sem precisar usar um `COPY`. Além disso, um cache mount para armazenar os arquivos instalados e ganhar tempo e espaço caso hajam atualizações das dependências.
+Como a `COPY` vem antes, ao alterarmos o conteúdo de `app.py`, inutilizamos as layers sucessoras guardadas em cache, pois elas usavam a versão antiga desse arquivo. 
 
-Após instalar os arquivos necessários, aí sim copiamos os demais arquivos.
+Para melhorar isso, vamos ordenar as instruções em ordem crescente de mutabilidade: as instruções com menor probabilidade de alteração (como a `RUN`, pois o Flask é sempre o mesmo) vem primeiro.
+
+Reestruturando o arquivo, ficaria assim:
 
 ```dockerfile
-# Importa a image
-FROM node:18-alpine
+FROM python:3.11.6-slim
 
-# Seta o workdir
-WORKDIR 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Aqui, é criado um cache mount para 
-# salvar em cache as dependências do 
-# node
-RUN --mount=type=cache,target=/npm-cache-dir \
-	# Essas duas linhas criam bind mounts para
-	# package.json e yarn.lock
-	--mount=type=bind,source=package.json,target=package.json \
-	--mount=type=bind,source=yarn.lock,target=yarn.lock \
-	# Instala as dependências
-	yarn install --production
+WORKDIR /app
 
-# Copia os arquivos do projeto para
-# o workdir
+RUN python -m pip install Flask
+
 COPY . .
+
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+
+EXPOSE 5000
+```
+
+Agora teremos mais eficiência. Mas ainda pode melhorar. Com a instrução `RUN`, instalamos o Flask. Essa instalação se repete toda vez que se reconstrói a image. Para melhorar isso, usaremos [binds](Volume.md). Ainda veremos direitinho, mas, resumindo, são formas de armazenar arquivos de um container.
+
+Vamos usar um *cache bind* para armazenar os arquivos da instalação localmente, para evitar instalações repetitivas:
+
+```dockerfile
+...
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+	python -m pip install Flask
 
 ...
 ```
 
-Dessa forma, se houverem alterações nas dependências do projeto, o Docker não perderá tempo reinstalando arquivos já instalados e salvos em cache. Além disso, caso hajam mudanças nos arquivos do projeto, o Docker poderá reutilizar a layer de instalação (pois veio antes do `COPY`), ganhando tempo e cache na build da image.
+Aqui, ele aramazena todos os arquivos do Flask em `/root/.cache/pip`. Dessa forma evitamos instalações repetitivas. 
 
-Além do Dockerfile, temos também o arquivo `.dockerignore` também colocado na raiz do projeto. Sua função é ignorar arquivos redundantes ou desnecessários para a image, como o diretório `node_modules`, que é recriado a cada container criado.
+Outra prática comum é usar *bind mounts* junto de *cache mounts* para instalar dependências especificadas em arquivos. Com esse mount, permitimos que o container use o arquivo como se ele estivesse no workdir, mas sem realmente estar.
 
-```.dockerignore
-node_modules
-```
-
-Dessa forma, melhoramos muito a velocidade e a qualidade de build dessa image.
-## Multi-staged builds
-
-As vezes é interessante separar as dependências de build das de deploy. É possível fazer mais de um from, com alias em cada. 
-
-No exemplo abaixo, primeiro se usa a imagem do node e a nomeia como *build*. Após os comandos de build, se usa a image do nginx. Pra finalizar, se importa nessa image os arquivos da imagem anterior. 
-
-Dessa forma, se podem fazer infinitos estágios pra build da image.
+Suponha que as dependências do projeto estejam no arquivo `requirements.txt`.  Ficaria assim:
 
 ```dockerfile
-# Creating a layer image with 
-# name build
+...
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+	--mount=type=bind,source=requirements.txt,target=requirements.txt \
+	python -m pip install -r requirements.txt
+
+...
+```
+
+`--mount=type=bind,source=<qual-arquivo-local>,target=<ele-no-container>`. Assim, as dependências são instaladas e armazenadas em cache eficientemente.
+
+Outra boa prática é usar um arquivo `.dockerignore`. Ele fica no mesmo diretório do Dockerfile, e configura que arquivos ou pastas devem ser ignorados na hora de copiar arquivos. Como por exemplo, a pasta `__pycache__`, que armazena caches python. Como ela é desnecessária, podemos colocá-la no `.dockerignore`.
+
+```
+# .dockerignore
+# Os asteriscos indicam
+# "em qualquer subdiretório"
+**/__pycache__
+```
+
+## Multi-staged builds
+
+Ainda é possível diminuir tremendamente o tamanho de uma imagem usando multi-staged builds em Docker. Você pode usar a instrução `AS` junto da `FROM` para criar um alias para um estágio da construção da image e usar apenas o resultado final na sua image final, ao invés de todos os arquivos de construção. Como podemos ver abaixo:
+
+```dockerfile
+# Primeiro estágio: Construindo a aplicação
+# Nesse estágio, usamos os arquivos da image
+# node:18 para construir nossa aplicação
 FROM node:18 AS build
+
 WORKDIR /app
+
 COPY package* yarn.lock ./
+
 RUN yarn install
+
 COPY public ./public
+
 COPY src ./src
+
 RUN yarn run build
 
-# After all the commands, starts
-# another image
+# Segundo eságio: Servindo a aplicação
+# Após ser contruída, usamos a image do
+# nginx para rodar a aplicação
 FROM nginx:alpine
-# Imports from build all the files
+
+# Como apenas precisamos dos arquivs finais
+# do estágio anterior, usamos o --from=build
+# para copiar apenas o essencial para a aplicação
 COPY --from=build /app/build /usr/share/nginx/html
 ```
+
+Ainda existem outras formas de se usar o `AS` e o `--from` que não serão tratadas aqui. Abaixo temos alguns comandos recorrentes quando se trabalha com images. Vamos para a próxima seção: Volumes.
+
+[Anterior: Container](Container.md)
+[Próximo: Volume](Volume.md)
+
 ## Comandos
 
 Comandos importantes:
-* `docker image ls`: lista todas as images
-* `docker push <image-tag>`: faz upload para o dockerhub de uma imagem específica (requer login)
-* `docker tag <image-tag-or-id> <new-tag>`: dá uma nova tag a uma imagem
-* `docker image history <image-id-or-tag>`: mostra as layers da imagem (as mais novas primeiro). Adiciona `--no-trunc` pra descompactar algumas linhas
-* `docker image rm <image-tag-or-id>`: deleta images.
+- `docker build -t <image-tag> <dockerfile-dir>`: constrói uma image a partir de um Dockerfile. O `-t` seta uma tag para a nova image criada; 
+* `docker image ls`: lista todas as images;
+* `docker push <image-tag>`: faz upload para o DockerHub de uma imagem específica (requer login);
+* `docker tag <image-tag-or-id> <new-tag>`: dá uma nova tag a uma imagem;
+* `docker image history <image-id-or-tag>`: mostra as layers da imagem (as mais novas primeiro). Adiciona `--no-trunc` pra descompactar algumas linhas;
+* `docker image rm <image-tag-or-id>`: deleta uma image;

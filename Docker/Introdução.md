@@ -6,7 +6,7 @@ Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceito
 #### **Tópicos ordenados:**
 1. [Instalação](Instalação.md)
 2. [Container](Container.md)
-3. [Image](Image.md) (Imcompleto)
+3. [Image](Image.md) 
 4. [Volume](Volume.md) (Imcompleto)
 5. [Network ](Network.md) (Imcompleto)
 6. [Docker-Compose](Docker-Compose.md) (Imcompleto)
