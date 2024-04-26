@@ -276,6 +276,7 @@ Comandos importantes:
 - `docker build -t <image-tag> <dockerfile-dir>`: constrói uma image a partir de um Dockerfile. O `-t` seta uma tag para a nova image criada; 
 * `docker image ls`: lista todas as images;
 * `docker push <image-tag>`: faz upload para o DockerHub de uma imagem específica (requer login);
+* `docker pull <image-tag>`: baixa uma imagem específica da nuvem (faz upload se a local estiver antiga);
 * `docker tag <image-tag-or-id> <new-tag>`: dá uma nova tag a uma imagem;
 * `docker image history <image-id-or-tag>`: mostra as layers da imagem (as mais novas primeiro). Adiciona `--no-trunc` pra descompactar algumas linhas;
 * `docker image rm <image-tag-or-id>`: deleta uma image;

@@ -134,31 +134,36 @@ Pronto!! Associamos o diretório `/app/data` (criado automaticamente pelo peewee
 
 ## Mounting
 
-Como dito, mounting é o ato de persistir dados no Docker. 
+Como dito, mounting é o ato de persistir dados no Docker. É possível realizar mounting em containers a partir da tag `-v`, como vimos, mas também com a tag `--mount`. Vamos ver a utilização de ambas.
 
-É o padrão. Apenas cria um espaço no Docker pra guardar certa pasta do container. Toda vez que você reinicia o container, ele lê e edita os arquivos que estão no volume.
-Para associa-lo a um container como mount, use:
+### Volume Mounting
 
-```shell
-docker run <container args> --mount type=volume,src=<nome-do-volume>,target=<pasta-pra-guardar> <image-name>
-```
-
-Agora, quando rodar o container, ele vai guardar e alterar todos os arquivos do caminho especificado em target no volume especificado em src.
+É o padrão. Apenas cria um espaço no Docker pra guardar certa pasta do container. 
+- `-v volume-name:diretorio`
+- `--mount src=volume-name,target=diretorio`
 
 ## Bind Mount
 
-Nesse você seleciona uma pasta pra ser "compartilhada" com o container. Ele vai analisar toda e qualquer alteração na pasta e atualizar automaticamente. Muito usado pra teste de aplicações (live server bem dizer).
-Pra conectar um container dessa forma use:
+Nesse tipo de mounting, você seleciona uma pasta pra ser "compartilhada" com o container. Ele vai analisar toda e qualquer alteração na pasta escolhida e atualizar automaticamente dentro do container. Muito usado pra teste de aplicações.
+- `-v dir-local:dir-equivalente`
+- `--mount type=bind,src=dir-local,target=dir-equivalente`
 
-```shell
-docker run <container args> --mount type=bind,src=<pasta-local>,target=<pasta-pra-linkar-no-container> <image-name>
-```
+## Temporary Mount
 
-Agora, quando rodar o container, ele vai linkar a pasta do src (que é uma pasta do seu computador) com a pasta do target (uma pasta dentro do container) e refletir as alterações feitas no src dentro do target. 
+Só funcionam em Linux, e têm a mesma lógica do container: ficam disponíveis apenas na memória do host, e são apagados quando o container é removido. São úteis quando se precisam armazenar dados sensitivos brevemente.
+
+
+![Bind mounts on the Docker host](https://docs.docker.com/storage/images/types-of-mounts-bind.webp?w=450&h=300)
+
+Enfim, abaixo temos os comandos relacionados a volumes. E vamos ao próximo tópico.
 
 [Anterior: Image](Image.md)
 [Próximo: Network](Network.md)
+
 ## Comandos
 
 Comandos importantes:
+- `docker volume create <volume-name>`: cria um volume;
 * `docker volume inspect <volume-name>`: devolve dados do volume
+* `docker volume ls`: lista todos os volumes;
+* `docker volume rm <volume-name>`: deleta um volume;
