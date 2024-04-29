@@ -11,9 +11,6 @@ Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceito
 5. [Network ](Network.md) (Imcompleto)
 6. [Docker-Compose](Docker-Compose.md) (Imcompleto)
 7. [Containerizando um app Python](Containerizando-um-app-Python.md) (Imcompleto)
-8. [Orchestrators ](Orchestrators.md)(Imcompleto)
-    - [Kubernetes](Kubernetes.md) (Imcompleto)
-    - [Docker Swarm](Docker-Swarm.md) (Imcompleto)
 
 # Docker - Por quê?
 
