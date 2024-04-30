@@ -28,7 +28,7 @@ docker volume create database-data
 Agora, criaremos o container PostgreSQL, associando-o com a network e o volume criados:
 
 ```shell
-docker run -d --name my-database -v my-database-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=12345678 -e POSTGRES_DB=default --network=my-net -p 5432:5432 postgres
+docker run -d --name my-database -v my-database-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=12345678 -e POSTGRES_DB=default --network=my-net -expose 5432 postgres
 ```
 
 Agora vamos alterar o container de nossa aplicação anterior. No arquivo `app.py` troque a linha `db = SqliteDatabase('data.db')` pelo código abaixo:
@@ -92,3 +92,17 @@ Ele resolveu o host *my-database* em um endereço ip, por isso a conexão é pos
 ```shell
 docker run <container-args> --network <network-name> --network-alias <network-alias> <image-name>
 ```
+
+Agora, no tópico seguinte, vamos aprender a criar uma aplicação multi-container mais facilmente com Docker Compose. 
+
+[Anterior: Volume](Volume.md)
+[Próximo: Docker Compose](Docker-Compose.md)
+
+## Comandos
+
+Comandos importantes:
+- `docker network create <network-name>`: cria uma network;
+* `docker network inspect <network-name>`: devolve dados da network
+* `docker network ls`: lista todas as networks;
+* `docker network rm <network-name>`: deleta uma network;
+
