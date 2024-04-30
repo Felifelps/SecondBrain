@@ -3,7 +3,7 @@
 [Anterior: Container](Container.md)
 [Próximo: Volume](Volume.md)
 
-É o molde que permite recriar um ambiente em um [container](Estudos/Docker/Container). A Docker já disponibiliza imagens base (de Sistemas  Operacionais ou ferramentas pré-configuradas) para se usar de base para criar suas próprias images. 
+É o molde que permite recriar um ambiente em um [container](Container.md). A Docker já disponibiliza imagens base (de Sistemas  Operacionais ou ferramentas pré-configuradas) para se usar de base para criar suas próprias images. 
 
 As images são criadas a partir de um arquivo `Dockerfile`, que especifica comandos para construir o ambiente de execução do container.  A cada comando do arquivo, é gerada uma *layer*. Layers são estágios de build da image armazenadas em cache. Quando se precisa rebuildar a image, o Docker pode se utilizar de layers não alteradas para agilizar a construção.
 

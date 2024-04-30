@@ -5,5 +5,5 @@ Para usar o Docker, precisamos instalar o Docker Desktop primeiro, que é o soft
 Para esse tutorial, usaremos mais a CLI. Instale aqui:
 - [Docker Desktop](https://docs.docker.com/get-docker/)
 
-[Anterior: Introdução](Introdução.md)
+[Anterior: Introdução](SecondBrain/Docker/Introdução.md)
 [Próximo: Container](Container.md)
