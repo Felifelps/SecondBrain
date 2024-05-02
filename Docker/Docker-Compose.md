@@ -5,41 +5,63 @@
 
 Docker Compose é uma ferramenta do Docker que facilita a criação e manutenção de aplicações multicontainer. Todo o ambiente é configurado usando um arquivo `.yaml`.
 
-Como sempre, a melhor forma de aprender é pela prática. Vamos começar novamente do exemplo anterior. Dessa vez, não alteraremos os arquivos do servidor. 
+Como sempre, a melhor forma de aprender é pela prática. Vamos começar novamente do exemplo anterior. No arquivo `app.py`, altere o seguinte código:
 
-Crie, na raiz do projeto, um arquivo chamado `compose.yaml` e coloque nele o seguinte código:
+```python
+# app.py
+from flask import *
+from peewee import *
+
+with open('/run/secrets/db-password',
+        'r', encoding='utf-8') as file:
+    PASSWORD = file.read()
+
+db = PostgresqlDatabase(
+    'default',
+    user='postgres',
+    password=PASSWORD,
+    host='my-database',
+    port=5432
+)
+
+...
+```
+
+Agora crie, na raiz do projeto, um arquivo chamado `compose.yaml` e coloque nele o seguinte código:
 
 ```yaml
 version: 3.8
 name: myserver
 
 services:
-	server:
-		image: network-example
-		ports:
-			- 127.0.0.1:5000:5000
-			- 0.0.0.0:5000:5000
-		depends_on:
-			db:
-				condition: service_healthy
-	db:
-		image: postgres
-	    restart: always
-	    user: postgres
-	    secrets:
-	      - db-password
-	    volumes:
-	      - db-data:/var/lib/postgresql/data
-	    environment:
-	      - POSTGRES_DB=example
-	      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
-	    expose:
-	      - 5432
-	    healthcheck:
-	      test: [ "CMD", "pg_isready" ]
-	      interval: 10s
-	      timeout: 5s
-	      retries: 5
+  server:
+    image: network-example
+    ports:
+      - 127.0.0.1:5000:5000
+      - 0.0.0.0:5000:5000
+    secrets:
+        - db-password
+    depends_on:
+      db:
+        condition: service_healthy
+  my-database:
+    image: postgres
+      restart: always
+      secrets:
+        - db-password
+      volumes:
+        - db-data:/var/lib/postgresql/data
+      environment:
+      - POSTGRES_USER=postgres
+        - POSTGRES_DB=default
+        - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+      expose:
+        - 5432
+      healthcheck:
+        test: [ "CMD", "pg_isready" ]
+        interval: 10s
+        timeout: 5s
+        retries: 5
 
 volumes:
   db-data:
@@ -96,44 +118,44 @@ Dentro do serviço, podemos especificar quaisquer configurações do container c
 
 ```yaml
 services:
-	service1:
-		image: image-name:image-tag
-	    command: command
-	    restart: ...
-	    OR
-	    build:
-		    context: .
-	    ports:
-	      - host-port:container-port
-	      - host-port2:container-port2
-	    working_dir: /app
-	    depends_on:
-		    service_to_depend:
-			    condition: ...
-			    restart: ...
-	    volumes:
-	      - ./:/app
-	      - ./html:/html
-	    networks:
-		  - network1
-		  - network2
-		configs:
-		  - my_config_1
-		  - my_config_2
-	    environment:
-	      MY_ENV_VAR: value
-	      MY_SECOND_ENV_VAR: 2
-		healthcheck:
-		  test: ["CMD", "curl", "-f", "http://localhost"]
-		  interval: 1m30s
-		  timeout: 10s
-		  retries: 3
-		  start_period: 40s
-		  start_interval: 5s
-		develop:
-		  watch:
-			- action: rebuild
-			  path: .
+  service1:
+    image: image-name:image-tag
+      command: command
+      restart: ...
+      OR
+      build:
+        context: .
+      ports:
+        - host-port:container-port
+        - host-port2:container-port2
+      working_dir: /app
+      depends_on:
+        service_to_depend:
+          condition: ...
+          restart: ...
+      volumes:
+        - ./:/app
+        - ./html:/html
+      networks:
+      - network1
+      - network2
+    configs:
+      - my_config_1
+      - my_config_2
+      environment:
+        MY_ENV_VAR: value
+        MY_SECOND_ENV_VAR: 2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      start_interval: 5s
+    develop:
+      watch:
+      - action: rebuild
+        path: .
 ```
 
 >**Atenção**: a configuração `volumes` apenas configura o tipo de volume e as pastas envolvidas, mas **não o cria**!!!. Se você deseja evitar erros causados pela não criação de volumes, especifique-os na seção top-level volumes. A mesma lógica serve para a `networks`
@@ -165,12 +187,12 @@ Nesta seção, opcional, você pode personalizar as redes de sua aplicação (se
 
 ```yaml
 networks:
-	network-name:
-		driver: bridge/overlay/macvlan/host
-		subnetwork:
-			driver: default
-	another-network:
-		...
+  network-name:
+    driver: bridge/overlay/macvlan/host
+    subnetwork:
+      driver: default
+  another-network:
+    ...
 ```
 
 [Mais](https://docs.docker.com/compose/compose-file/06-networks/)
@@ -181,8 +203,8 @@ Aqui se criam os volumes utilizados e setados em services. Há várias configura
 
 ```yaml
 volumes:
-	my-volume:
-	my-second-volume:
+  my-volume:
+  my-second-volume:
 ```
 
 [Mais](https://docs.docker.com/compose/compose-file/07-volumes/)
@@ -213,10 +235,10 @@ configs:
 
 ```yaml
 secrets:
-	server-certificate:
-		file: ./server.cert
-	token:
-		enviroment: "TOKEN"
+  server-certificate:
+    file: ./server.cert
+  token:
+    enviroment: "TOKEN"
 ```
 
 Enfim, terminamos de ver um pouco de Docker Compose. Agora, vamos fazer um exemplo simples para fixar os conhecimentos adquiridos até agora.
