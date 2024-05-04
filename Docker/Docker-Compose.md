@@ -1,7 +1,7 @@
 # Docker Compose
 
 [Anterior: Network](Network.md)
-[Próximo: Exemplo simples](Exemplo-Simples.md)
+[Próximo: Orchestrators](Orchestrators.md)
 
 Docker Compose é uma ferramenta do Docker que facilita a criação e manutenção de aplicações multicontainer. Todo o ambiente é configurado usando um arquivo `.yaml`.
 
@@ -241,7 +241,7 @@ secrets:
     enviroment: "TOKEN"
 ```
 
-Enfim, terminamos de ver um pouco de Docker Compose. Agora, vamos fazer um exemplo simples para fixar os conhecimentos adquiridos até agora.
+Enfim, terminamos de ver um pouco de Docker Compose. Agora, iremos aprender sobre Orchestrators.
 
 [Anterior: Network](Network.md)
-[Próximo: Exemplo simples](Exemplo-Simples.md)
+[Próximo: Orchestrators](Orchestrators.md)
