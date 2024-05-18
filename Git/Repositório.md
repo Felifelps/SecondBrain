@@ -97,7 +97,7 @@ Não se preocupe! Talvez haja algum commit no qual o `file.txt` esteja salvo. Pa
 git log --oneline
 ```
 
-> O argumento `--oneline` serve para resumir os detalhes do commit a uma única linha. Sem ele, haveria muita informação exibiad o e isso dificultaria a busca pelo commit. 
+> O argumento `--oneline` serve para resumir os detalhes do commit a uma única linha. Sem ele, haveria muita informação exibida o e isso dificultaria a busca pelo commit. 
 > Caso queira sair do log, basta apertar a tecla `q`.
 
 Seu output deve ser parecido com esse:
@@ -110,13 +110,13 @@ $ git log --oneline
 
 Analise que o primeiro commit exibido possui, após seu hash, um parênteses com o texto `(HEAD -> master)`. A `HEAD` é o ponteiro do Git, e sempre aponta para o commit atual. O `master` é o [branch](Branch.md) atual, mas isso será tratado no próximo tópico.
 
-Nesse caso, o commit atual é o último que fizemos. Mas queremos voltar para o primeiro commit. Para isso, utilizaremos o comando abaixo, passando o hash do primeiro commit como argumento:
+Nesse caso, o commit atual é o último que fizemos. Mas queremos voltar para o primeiro commit. Para isso, utilizaremos o comando abaixo, passando o hash do commit almejado como argumento:
 
 ```bash
 git reset --hard [hash-do-commit-1]
 ```
 
-Pronto! A opção `--hard` desfaz os commits intermediários e volta todos os arquivos do repositório para o estado que estavam no commit especificado. Nesse caso, quando fizemos o commit, o arquivo `file.txt` ainda existia. 
+Pronto! A opção `--hard` desfaz os commits intermediários e volta todos os arquivos do repositório para o estado em que estavam no commit especificado. Nesse caso, quando fizemos o commit, o arquivo `file.txt` ainda existia. Logo, ao voltar ao commit antigo, recuperamos o arquivo.
 
 Você pode checar a localização do `HEAD` com o `git log --oneline`. Você verá que o commit onde deletamos `file.txt` foi excluído, e que o `HEAD` aponta para o primeiro commit que fizemos.
 
