@@ -116,10 +116,13 @@ Neste exemplo:
 - a partir de `<<<<<<< HEAD` até `=======`, temos a parte do arquivo alterada no branch atual (`master`, nesse caso)
 - do `=======` até `>>>>>>> dev`, temos a parte alterada no branch de merge (`dev`). 
 
-Para resolver esse conflito, você deve escolher qual a correta e apagar a indesejada. Digamos que a alteração feita no `dev` era a correta. Então, alteraríamos o arquivo para que ele ficasse assim:
+Para resolver esse conflito, você deve atualizar o arquivo da forma que você deseja (uma das duas, as duas ou nenhuma, você escolhe). 
+
+Digamos que o correto seriam as duas alterações juntas. Então, alteraríamos o arquivo para que ele ficasse assim:
 
 ```
 Conteúdo do arquivo
+Linha adicionada no master
 Linha adicionada no dev
 ```
 
@@ -128,6 +131,8 @@ Após corrigir as alterações, basta adicioná-las ao `index` (com `git add mai
 ```bash
 git merge --continue
 ```
+
+> Dependendo da situação do merge, usar `git commit` também funciona.
 
 Pronto!! Os conflitos foram corrigidos e o merge será finalizado. 
 
