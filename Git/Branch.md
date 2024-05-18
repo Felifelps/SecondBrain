@@ -24,13 +24,13 @@ git branch dev
 Agora, para ver todos os branches criados, rode:
 
 ```bash
-git branch -l
+git branch
 ```
 
 Seu output deve ser esse:
 
 ```bash
-$ git branch -l
+$ git branch
   dev
 * master
 ```
@@ -43,7 +43,7 @@ git checkout dev
 
 > Caso queira criar um branch e trocar para ele de uma vez só, use `git checkout -b [nome-do-novo-branch]`
 
-Deve aparecer a mensagem `Switched to branch 'dev'` após o comando. Caso queira confirmar, basta usar o `git branch -l` para ver o asterisco antes do nome `dev`.
+Deve aparecer a mensagem `Switched to branch 'dev'` após o comando. Caso queira confirmar, basta usar o `git branch` para ver o asterisco antes do nome `dev`.
 
 Agora observe o seu repositório: houve alguma mudança? Não? Exato. Quando criamos um novo branch, geramos uma cópia do branch original. 
 
@@ -75,7 +75,73 @@ E pronto!! Agora o arquivo `file2.txt` foi incorporado ao `master`. Como já inc
 
 ![Workflow do repositório de exemplo](branch-example.png)
 
+## Merge conflicts
 
+Às vezes ocorrem conflitos em merges: problemas na hora de unir arquivos diferentes nos dois branches. Eles ocorrem quando alteramos um arquivo num branch e o incorporamos no outro, de forma que o Git não sabe qual alteração deixar: a original ou a nova.
+
+Por exemplo, imagine que você tem um arquivo `main.txt` no branch `master`:
+
+```
+Conteúdo do arquivo
+```
+
+Então você cria outro branch, `dev`, e altera o arquivo, pra ficar dessa forma:
+
+```
+Conteúdo do arquivo
+Linha adicionada no dev
+```
+
+E no branch master você faz mais um commit, alterando o `main.txt`:
+
+```
+Conteúdo do arquivo
+Linha adicionada no master
+```
+
+Ao tentar fazer merge, teremos um merge conflict, pois ocorreram duas atualizações diferentes nos dois branches e o Git não consegue determinar qual é a correta.
+
+Para resolver, temos que, manualmente, decidir qual será a atualização desejada. Ao abrir o arquivo `main.txt` no branch `master`, teremos esse texto:
+
+```
+Conteúdo do branch
+<<<<<<< HEAD
+Linha adicionada no master
+=======
+Linha adicionada no dev
+>>>>>>> dev
+```
+
+Neste exemplo:
+- a partir de `<<<<<<< HEAD` até `=======`, temos a parte do arquivo alterada no branch atual (`master`, nesse caso)
+- do `=======` até `>>>>>>> dev`, temos a parte alterada no branch de merge (`dev`). 
+
+Para resolver esse conflito, você deve escolher qual a correta e apagar a indesejada. Digamos que a alteração feita no `dev` era a correta. Então, alteraríamos o arquivo para que ele ficasse assim:
+
+```
+Conteúdo do arquivo
+Linha adicionada no dev
+```
+
+Após corrigir as alterações, basta adicioná-las ao `index` (com `git add main.txt`) e rodar o seguinte comando:
+
+```bash
+git merge --continue
+```
+
+Pronto!! Os conflitos foram corrigidos e o merge será finalizado. 
+
+Acabamos com branches, mas, após os links, temos alguns comandos interessantes de se conhecer ao usar branches. Dê uma olhadinha antes de ir para o próximo tópico.
 
 [Anterior: Repositório](Repositório.md)
 [Próximo: GitHub](GitHub.md)
+
+## Comandos
+- `git branch`: Lista todos os branches presentes no repositório local.
+- `git branch nome_do_branch`: Cria um novo branch com o nome especificado.
+- `git checkout nome_do_branch`: Alterna para o branch especificado.
+- `git checkout -b nome_do_branch`: Cria um novo branch com o nome especificado e alterna para ele em um único comando.
+- `git merge nome_do_branch`: Mescla as alterações do branch especificado para o branch atual.
+- `git branch -d nome_do_branch`: Exclui o branch especificado (apenas se as alterações do branch já foram incorporadas em outro lugar).
+- `git branch -D nome_do_branch`: Força a exclusão do branch especificado, mesmo se as alterações não tiverem sido mescladas.
+- `git branch -m nome_novo_do_branch`: Renomeia o branch atual para o nome especificado.
