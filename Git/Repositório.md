@@ -124,5 +124,5 @@ Você pode checar a localização do `HEAD` com o `git log --oneline`. Você ver
 
 Aprendemos um pouco do básico do git, mas ainda não terminamos. Ainda temos alguns conceitos fundamentais para trabalhar acerca dessa ferramenta. O próximo será Branch. Vamos com tudo!
 
-[[Anterior: Instalação](Instalação.md)](Repositório.md)
+[Anterior: Instalação](Repositório.md)
 [Próximo: Branch](Branch.md)

@@ -1,7 +1,7 @@
 # Introdução
 
 #### **Tópicos ordenados:**
-1. [Instalação](SecondBrain/Docker/Instalação.md)
+1. [Instalação](Instalação.md)
 2. [Repositório](Repositório.md)
 3. [Branch](Branch.md) 
 4. [GitHub](GitHub.md) (Imcompleto)
