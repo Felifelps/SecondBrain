@@ -131,6 +131,8 @@ git merge --continue
 
 Pronto!! Os conflitos foram corrigidos e o merge será finalizado. 
 
+## Conclusão
+
 Acabamos com branches, mas, após os links, temos alguns comandos interessantes de se conhecer ao usar branches. Dê uma olhadinha antes de ir para o próximo tópico.
 
 [Anterior: Repositório](Repositório.md)
