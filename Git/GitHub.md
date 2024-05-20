@@ -35,9 +35,10 @@ Após centrar na sua conta GitHub, você será redirecionado para seu dashboard.
 
 Para criar um repositório, basta clicar em "Criar repositório", ou no "+" (ambos destacados em amarelo). Você será levado a essa página:
 
-![Criar repositório](img/github-create-repository.png)*Página de criação de repositório*
+![Criar repositório](img/github-create-repository.png)
+*Página de criação de repositório*
 
-Vamos destrinchar os campos demosntrados:
+Vamos destrinchar os campos demonstrados:
 - **Nome do Repositório**: Aqui você nomeia o repositório. Não pode ser um nome de um repositório seu já existente;
 - **Descrição**: Opcional;
 - **Visibilidade**: Seu repositório pode ser **público** ou **privado**. ==Nesse tutorial, é preciso que o deixe público.== É possível alterar depois;
