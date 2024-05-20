@@ -2,6 +2,7 @@
 
 [Anterior: Instalação](Instalação.md)
 [Próximo: Branch](Branch.md)
+## O que é Repositório?
 
 Repositórios é um espaço, ou diretório, onde os arquivos do projeto são armazenados e gerenciados. Para iniciar um repositório, crie uma pasta chamada `MyRepo`, abra o terminal ou o Git Bash nela, e rode o seguinte comando:
 
@@ -17,6 +18,8 @@ Initialized empty Git repository in [local-do-seu-repo]
 ```
 
 Esse comando transforma a pasta em que você está num repositório Git por meio da pasta (oculta) `.git` que é criada no local.
+
+## Alterando
 
 Agora vamos aos trabalhos. Abra a pasta que você criou, e crie um arquivo de texto chamado `file.txt`. Escreva qualquer coisa nele. Agora, rode o seguinte comando:
 
@@ -92,7 +95,11 @@ Vamos fazer um exemplo. No mesmo diretório do exemplo anterior, remova o arquiv
 
 Digamos que você lembrou que havia algo importante nesse arquivo e precisa recuperá-lo, mas você acabou de deletar esse arquivo. 
 
-Não se preocupe! Talvez haja algum commit no qual o `file.txt` esteja salvo. Para ver os commits realizados, use o seguinte comando:
+Não se preocupe! Talvez haja algum commit no qual o `file.txt` esteja salvo. 
+
+### Git log
+
+Para ver os commits realizados, use o seguinte comando:
 
 ```bash
 git log --oneline
@@ -111,6 +118,8 @@ $ git log --oneline
 ```
 
 Analise que o primeiro commit exibido possui, após seu hash, um parênteses com o texto `(HEAD -> master)`. A `HEAD` é o ponteiro do Git, e sempre aponta para o commit atual. O `master` é o [branch](Branch.md) atual, mas isso será tratado no próximo tópico.
+
+### Hard reseting
 
 Nesse caso, o commit atual é o último que fizemos. Mas queremos voltar para o primeiro commit. Para isso, utilizaremos o comando abaixo, passando o hash do commit almejado como argumento:
 

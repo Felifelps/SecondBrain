@@ -3,11 +3,13 @@
 [Anterior: Container](Container.md)
 [Próximo: Volume](Volume.md)
 
+## O que é uma image?
+
 É o molde que permite recriar um ambiente em um [container](Container.md). A Docker já disponibiliza imagens base (de Sistemas  Operacionais ou ferramentas pré-configuradas) para se usar de base para criar suas próprias images. 
 
 As images são criadas a partir de um arquivo `Dockerfile`, que especifica comandos para construir o ambiente de execução do container.  A cada comando do arquivo, é gerada uma *layer*. Layers são estágios de build da image armazenadas em cache. Quando se precisa rebuildar a image, o Docker pode se utilizar de layers não alteradas para agilizar a construção.
 
-As imagens são nomeadas na hora da build e diferenciadas por *tags*. Tags são usadas para diferenciar as diferentes versões da imagem. A tag padrão é a `latest`, que referencia sempre a última versão da image. A sintaxe é sempre essa: `node:18-alpine`: image com o node instalado na versão 18 na dristro Linux Alpine. Obs: `nome-da-image` = `nome-da-image:latest`.
+As images são nomeadas na hora da build e diferenciadas por *tags*. Tags são usadas para diferenciar as diferentes versões da imagem. A tag padrão é a `latest`, que referencia sempre a última versão da image. A sintaxe é sempre essa: `node:18-alpine`: image com o node instalado na versão 18 na dristro Linux Alpine. Obs: `nome-da-image` = `nome-da-image:latest`.
 
 ## Criação
 
@@ -103,6 +105,8 @@ What's Next?
   View a summary of image vulnerabilities and recommendations → docker scout quickview
 ```
 
+### Rodando um container a partir da image
+
 Agora você pode criar containeres com o mesmo ambiente de seu diretório. Para ver se funcionou, rode o seguinte comando:
 
 ```shell
@@ -193,9 +197,11 @@ CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 EXPOSE 5000
 ```
 
-Agora teremos mais eficiência. Mas ainda pode melhorar. Com a instrução `RUN`, instalamos o Flask. Essa instalação se repete toda vez que se reconstrói a image. Para melhorar isso, usaremos [binds](Volume.md). Ainda veremos direitinho, mas, resumindo, são formas de armazenar arquivos de um container.
+Agora teremos mais eficiência. Mas ainda pode melhorar. Com a instrução `RUN`, instalamos o Flask. Essa instalação se repete toda vez que se reconstrói a image. Para melhorar isso, usaremos [mounts](Volume.md). Ainda veremos direitinho, mas, resumindo, são formas de armazenar arquivos de um container.
 
-Vamos usar um *cache bind* para armazenar os arquivos da instalação localmente, para evitar instalações repetitivas:
+### Cache mount
+
+Vamos usar um *cache mount* para armazenar os arquivos da instalação localmente, para evitar instalações repetitivas:
 
 ```dockerfile
 ...
@@ -207,6 +213,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 ```
 
 Aqui, ele aramazena todos os arquivos do Flask em `/root/.cache/pip`. Dessa forma evitamos instalações repetitivas. 
+
+### Bind mounts
 
 Outra prática comum é usar *bind mounts* junto de *cache mounts* para instalar dependências especificadas em arquivos. Com esse mount, permitimos que o container use o arquivo como se ele estivesse no workdir, mas sem realmente estar.
 
@@ -223,6 +231,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 ```
 
 `--mount=type=bind,source=<qual-arquivo-local>,target=<ele-no-container>`. Assim, as dependências são instaladas e armazenadas em cache eficientemente.
+
+### .dockerignore
 
 Outra boa prática é usar um arquivo `.dockerignore`. Ele fica no mesmo diretório do Dockerfile, e configura que arquivos ou pastas devem ser ignorados na hora de copiar arquivos. Como por exemplo, a pasta `__pycache__`, que armazena caches python. Como ela é desnecessária, podemos colocá-la no `.dockerignore`.
 
@@ -266,11 +276,6 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 ```
 
-Ainda existem outras formas de se usar o `AS` e o `--from` que não serão tratadas aqui. Abaixo temos alguns comandos recorrentes quando se trabalha com images. Vamos para a próxima seção: Volumes.
-
-[Anterior: Container](Container.md)
-[Próximo: Volume](Volume.md)
-
 ## Comandos
 
 Comandos importantes:
@@ -281,3 +286,11 @@ Comandos importantes:
 * `docker tag <image-tag-or-id> <new-tag>`: dá uma nova tag a uma imagem;
 * `docker image history <image-id-or-tag>`: mostra as layers da imagem (as mais novas primeiro). Adiciona `--no-trunc` pra descompactar algumas linhas;
 * `docker image rm <image-tag-or-id>`: deleta uma image;
+
+## Conclusão
+
+Ainda existem outras formas de se usar o `AS` e o `--from` que não serão tratadas aqui. Acima temos alguns comandos recorrentes quando se trabalha com images. Vamos para a próxima seção: Volumes.
+
+[Anterior: Container](Container.md)
+[Próximo: Volume](Volume.md)
+

@@ -3,6 +3,8 @@
 [Anterior: Branch](Branch.md)
 [Próximo: Colaboração](Colaboração.md)
 
+## O que é GitHub?
+
 GitHub é uma plataforma online que hospeda projetos de software a partir do sistema Git. No GitHub, é possível colaborar com outros desenvolvedores, manter controle de suas alterações, versionar projetos, dentre muitas outras coisas.
 
 Entre os principais recursos do GitHub, temos:
@@ -80,7 +82,7 @@ file2.txt
 
 Após essas alterações, adicione tudo ao `index`, e faça um commit.
 
-### Git remote
+#### Git remote
 
 Agora, usaremos alguns comando relacionados ao GitHub. Primeiro, para mandarmos as alterações para o nosso repositório online, precisamos definir nossa `origin`: o repositório de destino dos nossos comandos. Para isso, use:
 

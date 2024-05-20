@@ -3,7 +3,11 @@
 [Anterior: Network](Network.md)
 [Próximo: Orchestrators](Orchestrators.md)
 
+## O que é Docker Compose?
+
 Docker Compose é uma ferramenta do Docker que facilita a criação e manutenção de aplicações multicontainer. Todo o ambiente é configurado usando um arquivo `.yaml`.
+
+## Criando um projeto compose
 
 Como sempre, a melhor forma de aprender é pela prática. Vamos começar novamente do exemplo anterior. No arquivo `app.py`, altere o seguinte código:
 
@@ -90,6 +94,8 @@ docker compose down
 > [!NOTE]
 > Se quiser fazer build de uma das images usadas na aplicação compose, adicione `--build` ao comando `compose up`.
 > Se quiser deletar os volumes criados, adicione `--volumes` ao comando `compose down`.
+
+### Entendendo o exemplo
 
 O que fizemos aqui, foi configurar no arquivo `compose.yaml`, dois serviços: o nosso server Flask, que recebeu o nome `server` e usou como image base a que criamos no tópico anterior; e o serviço `db`, que gera um container postgres conectado a um volume próprio e com direito até a teste de funcionamento recorrentes. Massa né?
 
@@ -242,6 +248,8 @@ secrets:
   token:
     enviroment: "TOKEN"
 ```
+
+## Conclusão
 
 Enfim, terminamos de ver um pouco de Docker Compose. Agora, iremos aprender sobre Orchestrators.
 

@@ -3,6 +3,8 @@
 [Anterior: Repositório](Repositório.md)
 [Próximo: GitHub](GitHub.md)
 
+## O que é branch?
+
 Como sabemos, o Git conecta os commits uns aos outros para manter a ordem cronológica das alterações realizadas no projeto, criando assim uma árvore de commits. 
 
 Esta árvore é dividida em *branches* (galho em inglês), que representam diferentes linhas cronológicas do projeto. Quando você cria um repositório, é criado também um branch padrão chamado `master`, que representa a linha central.
@@ -15,6 +17,8 @@ Sua utilização é mais fácil de entender a partir da imagem abaixo:
 Como vemos na imagem, a partir do segundo commit feito no branch `master`, foi criado um novo branch chamado `new_feature`. Após a implementação da nova funcionalidade no novo branch, o usuário une o branch `new_feature` ao `master`, por meio de um `merge`. 
 
 Assim, o branch principal apenas recebeu a funcionalidade pronta, sem ter que passar pelos estados intermediários. Isso é bom quando o branch principal é espelho para uma aplicação rodando e não pode ser alterado com frequência. Um branch permite atualizar a aplicação sem atrapalhar a que já está rodando.
+
+## Criando um novo branch
 
 Agora vamos à prática. Crie um novo branch chamado `dev` com o seguinte comando:
 
@@ -36,7 +40,11 @@ $ git branch
 * master
 ```
 
-O `*` antes do branch `master` nos diz que estamos neste branch. Para trocar de branch, usamos o comando:
+O `*` antes do branch `master` nos diz que estamos neste branch. 
+
+### Trocando de branch
+
+Para trocar de branch, usamos o comando:
 
 ```bash
 git checkout dev
@@ -48,6 +56,8 @@ git checkout dev
 Deve aparecer a mensagem `Switched to branch 'dev'` após o comando. Caso queira confirmar, basta usar o `git branch` para ver o asterisco antes do nome `dev`.
 
 Agora observe o seu repositório: houve alguma mudança? Não? Exato. Quando criamos um novo branch, geramos uma cópia do branch original. 
+
+### Alterando o branch
 
 Agora faremos as alterações que quisermos. Crie um novo arquivo chamado `file2.txt` e escreva qualquer coisa nele. Agora, adicione tudo ao `index`, e faça um commit. 
 
@@ -78,7 +88,7 @@ E pronto!! Agora o arquivo `file2.txt` foi incorporado ao `master`. Como já inc
 ![Workflow do repositório de exemplo](img/branch-example.png)
 *Representação do exemplo feito*
 
-## Merge conflicts
+### Merge conflicts
 
 Às vezes ocorrem conflitos em merges: problemas na hora de unir arquivos diferentes nos dois branches. Eles ocorrem quando alteramos um arquivo num branch e o incorporamos no outro, de forma que o Git não sabe qual alteração deixar: a original ou a nova.
 
@@ -139,14 +149,9 @@ git merge --continue
 
 Pronto!! Os conflitos foram corrigidos e o merge será finalizado. 
 
-## Conclusão
-
-Acabamos com branches, mas, após os links, temos alguns comandos interessantes de se conhecer ao usar branches. Dê uma olhadinha antes de ir para o próximo tópico.
-
-[Anterior: Repositório](Repositório.md)
-[Próximo: GitHub](GitHub.md)
-
 ## Comandos
+
+Alguns comando úteis quando se trata de branches:
 - `git branch`: Lista todos os branches presentes no repositório local.
 - `git branch nome_do_branch`: Cria um novo branch com o nome especificado.
 - `git checkout nome_do_branch`: Alterna para o branch especificado.
@@ -155,3 +160,11 @@ Acabamos com branches, mas, após os links, temos alguns comandos interessantes 
 - `git branch -d nome_do_branch`: Exclui o branch especificado (apenas se as alterações do branch já foram incorporadas em outro lugar).
 - `git branch -D nome_do_branch`: Força a exclusão do branch especificado, mesmo se as alterações não tiverem sido mescladas.
 - `git branch -m nome_novo_do_branch`: Renomeia o branch atual para o nome especificado.
+
+## Conclusão
+
+Acabamos com branches, mas, acima, temos alguns comandos interessantes de se conhecer ao usar branches. Dê uma olhadinha antes de ir para o próximo tópico.
+
+[Anterior: Repositório](Repositório.md)
+[Próximo: GitHub](GitHub.md)
+

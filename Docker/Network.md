@@ -3,6 +3,8 @@
 [Anterior: Volume](Volume.md)
 [Próximo: Docker Compose](Docker-Compose.md)
 
+## O que é uma network?
+
 Tomando como exemplo o exemplo do tópico anterior, se eu quisesse usar um container PostgreSQL como banco de dados de minha aplicação, como faria? Introduzimos o conceito de Network: uma rede de containeres que se comunicam entre si. 
 
 É possível configurar o modo de execução de uma rede escolhendo seu driver dentre os abaixo:
@@ -12,6 +14,8 @@ Tomando como exemplo o exemplo do tópico anterior, se eu quisesse usar um conta
 - `overlay`: várias daemons Docker conectam de forma sobreposta;
 - `ipvlan`: controle total sobre endereçamento ipv4 e ipv6;
 - `macvlan`: gera um endereço Mac para o container.
+
+## Criando networks
 
 Vamos à prática. Para criar a network que usaremos para conectar os containeres, use o seguinte código:
 
@@ -60,6 +64,8 @@ docker run -dp 127.0.0.1:5000:5000 --name my-container network-example
 
 Acesse o [link de sempre](http://localhost:5000), e crie algumas notas. Se tudo ocorrer bem, sua network foi um sucesso.
 
+### Entendendo o exemplo
+
 Na configuração do arquivo `app.py`, definimos o host do banco Postgres como "my-database", que é o nome do container que criamos. Ou seja, **dentro de uma network, os containeres associam o nome dos demais com seus endereços IP**. 
 
 Para vermos essa propriedade, podemos fazer um ping (mandar pacotes de dados de teste) de um container para o outro. Para conectar ao terminal, usamos:
@@ -93,11 +99,6 @@ Ele resolveu o host *my-database* em um endereço ip, por isso a conexão é pos
 docker run <container-args> --network <network-name> --network-alias <network-alias> <image-name>
 ```
 
-Agora, no tópico seguinte, vamos aprender a criar uma aplicação multi-container mais facilmente com Docker Compose. 
-
-[Anterior: Volume](Volume.md)
-[Próximo: Docker Compose](Docker-Compose.md)
-
 ## Comandos
 
 Comandos importantes:
@@ -105,4 +106,13 @@ Comandos importantes:
 * `docker network inspect <network-name>`: devolve dados da network
 * `docker network ls`: lista todas as networks;
 * `docker network rm <network-name>`: deleta uma network;
+
+## Conclusão
+
+Agora, no tópico seguinte, vamos aprender a criar uma aplicação multi-container mais facilmente com Docker Compose. 
+
+[Anterior: Volume](Volume.md)
+[Próximo: Docker Compose](Docker-Compose.md)
+
+
 

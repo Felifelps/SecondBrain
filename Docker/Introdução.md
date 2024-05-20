@@ -3,7 +3,7 @@
 [Base de estudo](https://docs.docker.com/get-started/)
 
 Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceitos e aspectos básicos para o uso dessa ferramenta.
-#### **Tópicos ordenados:**
+#### **Partes do tutorial:**
 1. [Instalação](SecondBrain/Docker/Instalação.md)
 2. [Container](Container.md)
 3. [Image](Image.md) 
@@ -12,7 +12,7 @@ Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceito
 6. [Docker-Compose](Docker-Compose.md)
 7. [Orchestrators](Orchestrators.md)
 
-# Docker - Por quê?
+## Docker - Por quê?
 
 Vamos supor que você desenvolva uma aplicação completa em seu computador. Após desenhar, desenvolver e testar sua aplicação, você resolve enviá-la para um amigo para que ele a use. 
 

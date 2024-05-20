@@ -3,15 +3,21 @@
 [Anterior: Image](Image.md)
 [Próximo: Network](Network.md)
 
+## O que é um Volume?
+
 Como sabemos, quando criamos um container, todos os arquivos são sempre os memos, baseados numa image. Após a remoção do mesmo, todos os arquivos são deletados permanetemente. Como poderíamos manter arquivos gerados num container para que outros containeres também possam acessar? Volumes. 
 
 Volumes são baldes de dados que permitem armazenar arquivos no Docker. Sua principal utilização está no armazenamento de arquivos de containeres, mas também são usados em caches e builds de images. 
+
+### Mounting
 
 O ato de persistir dados no Docker é chamado de *mounting*. Há vários tipos de mounting:
 - *volume*: armazena os arquivos num volume pré-criado (ou gerado na hora);
 - *bind*: conecta arquivos/diretórios locais com containeres;
 - *tmpfs*: temporário;
 - *cache*: armazena dados para evitar duplicação (usado apenas em Dockerfiles).
+
+## Exemplo sem volume
 
 Vamos colocar a mão na massa. Para isso, vamos fazer um exemplo. Primeiro, edite crie um arquivo chamado `app.py`, com o seguinte código:
 
@@ -118,7 +124,11 @@ Agora, acesse [esse link](http://localhost:5000), e crie algumas notas. Agora, d
 docker rm -f my-container
 ```
 
-Agora, recrie o mesmo container, e acesse o link acima. Viu algo de diferente? **Suas notas não estão mais lá.** Ao reiniciar o container, recriamos o arquivo `data.db` que armazenava suas notas. Para evitar isso, vamos criar um volume. **Lembre-se de deletar o container que criamos.** Execute o seguinte comando:
+Agora, recrie o mesmo container, e acesse o link acima. Viu algo de diferente? **Suas notas não estão mais lá.** Ao reiniciar o container, recriamos o arquivo `data.db` que armazenava suas notas. Para evitar isso, vamos criar um volume. **Lembre-se de deletar o container que criamos.**
+
+## Exemplo com volume
+
+Execute o seguinte comando para criar um volume:
 
 ```shell
 docker volume create data-db
@@ -136,29 +146,24 @@ Pronto!! Associamos o diretório `/app/data` (criado automaticamente pelo peewee
 
 Como dito, mounting é o ato de persistir dados no Docker. É possível realizar mounting em containers a partir da tag `-v`, como vimos, mas também com a tag `--mount`. Vamos ver a utilização de ambas.
 
-### Volume Mounting
+### Volume Mount
 
 É o padrão. Apenas cria um espaço no Docker pra guardar certa pasta do container. 
 - `-v volume-name:diretorio`
 - `--mount src=volume-name,target=diretorio`
 
-## Bind Mount
+### Bind Mount
 
 Nesse tipo de mounting, você seleciona uma pasta pra ser "compartilhada" com o container. Ele vai analisar toda e qualquer alteração na pasta escolhida e atualizar automaticamente dentro do container. Muito usado pra teste de aplicações.
 - `-v dir-local:dir-equivalente`
 - `--mount type=bind,src=dir-local,target=dir-equivalente`
 
-## Temporary Mount
+### Temporary Mount
 
 Só funcionam em Linux, e têm a mesma lógica do container: ficam disponíveis apenas na memória do host, e são apagados quando o container é removido. São úteis quando se precisam armazenar dados sensitivos brevemente.
 
 
 ![Bind mounts on the Docker host](https://docs.docker.com/storage/images/types-of-mounts-bind.webp?w=450&h=300)
-
-Enfim, abaixo temos os comandos relacionados a volumes. E vamos ao próximo tópico.
-
-[Anterior: Image](Image.md)
-[Próximo: Network](Network.md)
 
 ## Comandos
 
@@ -167,3 +172,11 @@ Comandos importantes:
 * `docker volume inspect <volume-name>`: devolve dados do volume
 * `docker volume ls`: lista todos os volumes;
 * `docker volume rm <volume-name>`: deleta um volume;
+
+## Conclusão
+
+Enfim, acima temos os comandos relacionados a volumes. E vamos ao próximo tópico.
+
+[Anterior: Image](Image.md)
+[Próximo: Network](Network.md)
+

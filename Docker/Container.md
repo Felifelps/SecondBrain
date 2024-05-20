@@ -3,13 +3,15 @@
 [Anterior: Instalação](SecondBrain/Docker/Instalação.md)
 [Próximo: Image](Image.md)
 
+## O que é um container?
+
 Um container é um ambiente de execução isolado que é responsável por executar algum serviço. É criado a partir de uma [image](Image.md), que define quais serão os arquivos utilizados e comandos que serão executados. A image é um molde para o container. É possível criar vários containers diferentes (embora idênticos) de uma image só. 
 
 Cada container roda um serviço específico de forma dedicada e isolada. A Docker Engine (sistema que organiza os containeres) é responsável por dividir igualmente os recursos disponíveis para cada um dos containeres. Com a image certa, é possível recriar quaisquer ambientes possíveis e exportar a aplicação e seu ambiente de execução para qualquer ambiente Docker.
 
-### Criando containeres
+## Criando containeres
 
-A partir de agora, iremos utilizar a CLI do docker para estudar o gerenciamento de containeres de forma prática. Entre em algum terminal, após ter [instalado a Docker Engine](SecondBrain/Docker/Instalação.md), e rode o seguinte comando:
+A partir de agora, iremos utilizar a CLI do docker para estudar o gerenciamento de containeres de forma prática. Entre em algum terminal, após ter instalado e aberto o [Docker Desktop](SecondBrain/Docker/Instalação.md), e rode o seguinte comando:
 
 ```shell
 docker run -it python:3.11-slim
@@ -51,6 +53,8 @@ Se tudo apareceu como esperado, parabéns! Você acabou de criar um container! P
 - com o `exit()`, saímos do terminal python, encerrando a interatividade e fechando o container.
 
 Incrível não? Como já instalamos a image python, se você rodar novamente o `docker run` para a image python, ele não mostrará as linhas de download, pois a image já está instalada.  Qualquer ambiente com a Docker Engine poderá gerar esse mesmo container de forma simples e prática. Aí está a magia da containerização.
+
+### Rodando em segundo plano
 
 Agora faremos diferente. Rode o seguinte comando:
 
@@ -96,7 +100,7 @@ docker rm -f <nome-ou-id-do-container>
 
 É uma boa prática nomear seus containeres, por quê seria horrível ter que repetir esse passo-a-passo muitas vezes. Mas caso você se esqueça de nomear (meu caso, frequentemente), use o id. 
 
-## Fluxo de um container
+## Gerenciando o fluxo de um container
 
 Para parar, pausar ou iniciar um container, use:
 
@@ -126,11 +130,6 @@ docker attach <nome-ou-id-do-container>
 docker exec <nome-ou-id-do-container> <command>
 ```
 
-Acabamos o básico sobre containeres, mas, após os links, temos uma lista de comando recorrentes usados para o gerenciamento de containeres. Caso esteja interessado, ou precise, estão abaixo. Caso não, vamos para o próximo tópico: images.
-
-[Anterior: Instalação](SecondBrain/Docker/Instalação.md)
-[Próximo: Image](Image.md)
-
 ## Comandos
 
 Alguns comandos importantes:
@@ -154,3 +153,9 @@ Alguns comandos importantes:
 * `docker attach <container-id-ou-nome>`: mostra os logs do container continuamente no seu terminal;
 * `docker exec <container-id> <command>`: executa um comando dentro de um container rodando (se usar `-it` roda interativamente);
 
+## Conclusão
+
+Acabamos o básico sobre containeres, mas, acima, temos uma lista de comando recorrentes usados para o gerenciamento de containeres. Caso esteja interessado, ou precise, estão por lá. Caso não, vamos para o próximo tópico: images.
+
+[Anterior: Instalação](SecondBrain/Docker/Instalação.md)
+[Próximo: Image](Image.md)
