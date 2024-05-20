@@ -74,7 +74,7 @@ git merge dev
 
 E pronto!! Agora o arquivo `file2.txt` foi incorporado ao `master`. Como já incorporamos a atualização, é uma boa prática excluir o branch `dev` para simplificar o workflow do projeto.
 
-![Workflow do repositório de exemplo](branch-example.png)
+![Workflow do repositório de exemplo](img/branch-example.png)
 *Representação do exemplo feito*
 
 ## Merge conflicts
