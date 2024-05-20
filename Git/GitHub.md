@@ -23,14 +23,14 @@ Este último requer atenção, pois será "a sua cara" no GitHub. Anote as crede
 
 Após isso, sua conta será criada e você será enviado para a tela de login, na qual basta entrar com os dados que você colocou.
 
-![[github-account.png]]
+![Tela de login GitHub](img/github-account.png)
 *Tela de login GitHub*
 
 ## Criando um repositório
 
 Após centrar na sua conta GitHub, você será redirecionado para seu dashboard. Aqui aparecerão informações  sobre você, notícias interessantes ou notificações acerca das pessoas que você segue.
 
-![[github-dashboard.png]]
+![DashBoard GitHub](img/github-dashboard.png)
 *DashBoard GitHub*
 
 Para criar um repositório, basta clicar em "Criar repositório", ou no "+" (ambos destacados em amarelo).

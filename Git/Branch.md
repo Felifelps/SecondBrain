@@ -10,7 +10,7 @@ Esta árvore é dividida em *branches* (galho em inglês), que representam difer
 Sua utilização é mais fácil de entender a partir da imagem abaixo:
 
 ![Branch logic example](https://gitbookdown.dallasdatascience.com/img/git_branch_merge.png)
-*Demonstração do usos de branches*
+*Demonstração do uso de branches*
 
 Como vemos na imagem, a partir do segundo commit feito no branch `master`, foi criado um novo branch chamado `new_feature`. Após a implementação da nova funcionalidade no novo branch, o usuário une o branch `new_feature` ao `master`, por meio de um `merge`. 
 
