@@ -87,6 +87,7 @@ Quando quiser parar todos os containeres, execute, também no mesmo diretório d
 docker compose down
 ```
 
+> [!NOTE]
 > Se quiser fazer build de uma das images usadas na aplicação compose, adicione `--build` ao comando `compose up`.
 > Se quiser deletar os volumes criados, adicione `--volumes` ao comando `compose down`.
 
@@ -158,7 +159,8 @@ services:
         path: .
 ```
 
->**Atenção**: a configuração `volumes` apenas configura o tipo de volume e as pastas envolvidas, mas **não o cria**!!!. Se você deseja evitar erros causados pela não criação de volumes, especifique-os na seção top-level volumes. A mesma lógica serve para a `networks`
+>[!WARNING]
+>A configuração `volumes` apenas configura o tipo de volume e as pastas envolvidas, mas **não o cria**!!!. Se você deseja evitar erros causados pela não criação de volumes, especifique-os na seção top-level volumes. A mesma lógica serve para a `networks`
 
 #### Configurações de um service
 - `image`: a imagem usada;

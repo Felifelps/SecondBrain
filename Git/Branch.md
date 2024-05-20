@@ -42,6 +42,7 @@ O `*` antes do branch `master` nos diz que estamos neste branch. Para trocar de 
 git checkout dev
 ```
 
+> [!TIP]
 > Caso queira criar um branch e trocar para ele de uma vez só, use `git checkout -b [nome-do-novo-branch]`
 
 Deve aparecer a mensagem `Switched to branch 'dev'` após o comando. Caso queira confirmar, basta usar o `git branch` para ver o asterisco antes do nome `dev`.

@@ -68,7 +68,7 @@ CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 EXPOSE 5000
 ```
 
->==Atenção==
+>[!WARNING]
 >O arquivo não deve ter extensão, deve ser apenas ***Dockerfile***. Por convenção, os comandos são em UPPERCASE, mas também funcionam em lowercase.
 
 Agora, ainda nesse diretório, rode o seguinte comando para construir a image:
@@ -161,6 +161,7 @@ docker push <seu-nome-de-usuario>/my-server
 
 Após os logs, vá para o link `https://hub.docker.com/r/<seu-nome-de-usuario>/my-server` e veja sua image disponível. 
 
+>[!TIP]
 >Caso queira baixar uma image do Docker hub, use `docker pull <image-tag>`
 
 ## Boas práticas

@@ -81,6 +81,7 @@ Como visto no exemplo acima, após adicionar as alterações no `index`, podemos
 git commit -m "[mensagem-do-commit]"
 ```
 
+> [!TIP]
 > É uma boa prática sempre escrever mensagens objetivas em seus commits, para facilitar o entendimento do commit.
 
 ## Reseting
@@ -97,6 +98,7 @@ Não se preocupe! Talvez haja algum commit no qual o `file.txt` esteja salvo. Pa
 git log --oneline
 ```
 
+> [!NOTE]
 > O argumento `--oneline` serve para resumir os detalhes do commit a uma única linha. Sem ele, haveria muita informação exibida o e isso dificultaria a busca pelo commit. 
 > Caso queira sair do log, basta apertar a tecla `q`.
 
