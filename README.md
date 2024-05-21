@@ -16,3 +16,9 @@ Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga 
 1. Faça um fork deste repositório.
 2. Faça as alterações necessárias.
 3. Abra um Pull Request (PR) com as alterações.
+
+## Planejamento
+
+- [x] Docker
+- [x] Git/GitHub
+   - [ ] Actions
