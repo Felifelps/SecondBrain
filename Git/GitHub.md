@@ -133,6 +133,15 @@ Nesta imagem, podemos ver:
 - note que `file2.txt` não está lá. Isso aconteceu porque o colocamos no `.gitignore`: arquivo que define quem o Git deve ignorar na hora do push;
 - o arquivo README.md que escrevemos é exibido de cara.
 
+## Comandos
+
+Alguns comandos Git relacionados ao GitHub:
+- `git clone <repo-url>`: Clona um repositório remoto para o seu computador local;
+- `git push <repo-url>`: manda as alterações para o repositório online;
+- `git push origin <branch-name>`: Manda as alterações de uma branch específica para o repositório remoto.
+- `git pull <repo-url>`: Puxa as mudanças do repositório remoto para o repositório local.
+- `git pull origin <branch-name>`: Puxa as mudanças de uma branch específica do repositório remoto.
+
 ## Conclusão
 
 Por fim, criamos uma conta no GitHub, e aprendemos a criar um repositório online e alterá-lo localmente. Ainda temos mais um pouco de GitHub no próximo tópico.
