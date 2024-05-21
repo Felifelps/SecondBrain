@@ -1,10 +1,18 @@
 # Second Brain
 
-Este repositório é um conjunto de anotações e tutoriais voltados à programação no geral. Aqui registro e tento transmitir os conhecimentos que adquiri durante meus estudos na área.
+Bem-vindo ao repositório **Second Brain**! Este é um espaço dedicado a anotações e tutoriais sobre programação. Aqui, registro e compartilho os conhecimentos que adquiri ao longo dos meus estudos na área.
 
-Sinta-se a vontade para usar, corrigir ou indicar! Espero estar ajudando alguém.
+Sinta-se à vontade para usar, corrigir ou sugerir melhorias! Espero que este conteúdo seja útil para você.
 
 ## Conteúdos
 
-- [Git/Github](Git/Introdução.md) (Imcompleto)
-- [Docker](Docker/Introdução.md)
+- Git/GitHub
+- Docker
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga estas etapas:
+
+1. Faça um fork deste repositório.
+2. Faça as alterações necessárias.
+3. Abra um Pull Request (PR) com as alterações.

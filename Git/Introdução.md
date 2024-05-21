@@ -5,7 +5,8 @@
 2. [Repositório](Repositório.md)
 3. [Branch](Branch.md) 
 4. [GitHub](GitHub.md)
-5. [Colaboração](Colaboração.md) (Imcompleto)
+5. [Colaboração](Colaboração.md)
+6. Actions (Em breve)
 ## O que é Git?
 
 Git é um dos mais famosos (senão o mais famoso) *Version Control System* (VCS), ou sistema de controle de versão, da internet. Quase todos os programadores utilizam essa ferramenta para trabalhar em seus projetos.
