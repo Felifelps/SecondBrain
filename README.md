@@ -19,6 +19,6 @@ Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga 
 
 ## Planejamento
 
-- [x] Docker
-- [x] Git/GitHub
-   - [ ] Actions
+- ~~Docker~~
+- ~~Git/GitHub~~
+   - Actions
