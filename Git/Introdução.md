@@ -1,9 +1,9 @@
 # Introdução
 
 #### **Partes do tutorial:**
-1. [Instalação](SecondBrain/Git/Instalação.md)
+1. [Instalação](Instalação.md)
 2. [Repositório](Repositório.md)
-3. [Branch](Branch.md) 
+3. [Branch](Branch.md)
 4. [GitHub](GitHub.md)
 5. [Colaboração](Colaboração.md)
 6. Actions (Em breve)
