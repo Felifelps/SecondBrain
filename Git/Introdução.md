@@ -1,7 +1,7 @@
 # Introdução
 
 #### **Partes do tutorial:**
-1. [Instalação](Instalação.md)
+1. [Instalação](SecondBrain/Git/Instalação.md)
 2. [Repositório](Repositório.md)
 3. [Branch](Branch.md) 
 4. [GitHub](GitHub.md)
@@ -26,5 +26,5 @@ Juntamente com o Git, temos o GitHub, que é uma plataforma online que permite q
 
 Neste pequeno tutorial, vamos estudar a instalação e utilização do Git, bem como a disponibilização e colaboração com o GitHub. Vamos lá!
 
-[Próximo: Instalação](Instalação.md)
+[Próximo: Instalação](SecondBrain/Git/Instalação.md)
 

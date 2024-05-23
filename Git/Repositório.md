@@ -1,6 +1,6 @@
 # Repositório
 
-[Anterior: Instalação](Instalação.md)
+[Anterior: Instalação](SecondBrain/Git/Instalação.md)
 [Próximo: Branch](Branch.md)
 ## O que é Repositório?
 
