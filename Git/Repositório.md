@@ -68,6 +68,24 @@ Basicamente, há três formas de alteração que são salvas no index:
 
 Essas mensagens são exibidas quando fazemos um commit.
 
+### Vendo alterações
+
+Use `git status` para ver as alterações realizadas no projeto.
+
+### Removendo alterações
+
+As vezes você quer remover alguma alteração adicionada ou tirar a atenção do Git para o arquivo em questão. Para isso, use o seguinte comando:
+
+```bash
+git rm --cached <file>
+```
+
+Pronto! O arquivo especificado foi tirado do `index`, mas mantido no repositório.
+
+> [!NOTE]
+> Outros usos:
+> - `git rm <file>`: deleta um arquivo que não esteja no `index`;
+> -  `git rm -f <file>`: remove do index e do repositório
 ## Commits
 
 Commits são como fotos (snapshots) tiradas do repositório em um determinado momento. Elas armazenam exatamente como todos os arquivos do repositório estavam naquele momento, e permitem manter controle da história do projeto, bem como regressar ao commit caso seja desejado.
