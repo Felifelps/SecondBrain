@@ -8,6 +8,7 @@ Sinta-se à vontade para usar, corrigir ou sugerir melhorias! Espero que este co
 
 - [Git/GitHub](Git/Introdução.md)
 - [Docker](Docker/Introdução.md)
+- [SQL](SQL/Introdução.md) (Imcompleto)
 
 ## Contribuição
 
@@ -21,4 +22,4 @@ Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga 
 
 - ~~Docker~~
 - ~~Git/GitHub~~
-   - Actions
+- SQL 
