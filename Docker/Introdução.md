@@ -1,7 +1,5 @@
 # Introdução
 
-[Base de estudo](https://docs.docker.com/get-started/)
-
 Tutorial de Docker básico para iniciantes. Aqui tentei cobrir todos os conceitos e aspectos básicos para o uso dessa ferramenta.
 #### **Partes do tutorial:**
 1. [Instalação](Instalação.md)
