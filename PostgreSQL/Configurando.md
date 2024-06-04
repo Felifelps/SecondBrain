@@ -20,9 +20,9 @@ Para configurar seu ambiente PostgreSQL via SQL Shell, siga os seguintes passos:
 
 1. Abra o SQL Shell (busque nos aplicativos de seu computador)
 
-2. Ao abrir, você verá um terminal como a imagem abaixo:
+2. Ao abrir, você verá um terminal como a imagem abaixo. A opção entre [ ] é a opção padrão (escolheremos ela).
+
 ![psql aberto](img/sql-shell.png)
-A opção entre [ ] é a opção padrão (escolheremos ela).
 
 3. Aperte enter para cada opção até que o terminal peça a senha.
     ```bash
@@ -62,15 +62,19 @@ Para configurar seu pgAdmin, siga os passos abaixo:
 1. Abra o pgAdmin (busque nos aplicativos de seu computador)
 
 2. Após abrir o aplicativo, clique em *Servers* no canto superior esquerdo.
+
 ![pgAdmin start page](img/pgadmin-start.png)
 
 3. Deve aparecer um prompt pedindo a senha que você definiu na instalação. Caso não apareça, clique em *PostgreSQL 16*.
+
 ![Password prompt pgadmin](img/pgadmin-pw.png)
 
 4. Após fazer o login, o pgAdmin estará configurado. Caso queira testar comandos SQL, use a Query Tool do pgAdmin.
+
 ![Servers -> PostgreSQL 16 -> postgres(clique com o direito) -> Query Tool](img/pgadmin-querytool.png)
 
 5. Escreva `SELECT version();` no campo de texto e aperte F5 (ou clique no local marcado na imagem).
+
 ![Digite o código e aperte F5](img/pgadmin-version.png)
 
 ## Conclusão
