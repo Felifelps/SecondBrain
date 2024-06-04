@@ -32,5 +32,3 @@ Ela possui comandos relacionados à consulta; criação, atualização e exclus�
 Explicados esses conceitos, vamos ao que importa. Mas, antes de começarmos, precisamos instalar o necessário na sua máquina.
 
 [Próximo: Instalação](Instalação.md)
-
-
