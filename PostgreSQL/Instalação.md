@@ -53,7 +53,9 @@ O pgAdmin é uma interface gráfica de administração própria para o PostgreSQ
 
 ### Command Line Tools
 
-Como o nome sugere, consiste numa *Comman"d Line Interface* (CLI) cujos comandos estão voltados para o gerenciamento e uso do SGBDR por meio do terminal.
+Como o nome sugere, consiste numa *Command Line Interface* (CLI) cujos comandos estão voltados para o gerenciamento e uso do SGBDR por meio do terminal.
+
+A CLI está disponível a partir do aplicativo SQL Shell.
 
 ## Conclusão
 
