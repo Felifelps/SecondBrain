@@ -3,7 +3,7 @@
 #### **Partes do tutorial:**
 
 1. [Instalação](Instalação.md)
-2. [SQL](SQL.md)
+2. [Configurando](Configurando.md)
 
 ## O que é PostgreSQL?
 
