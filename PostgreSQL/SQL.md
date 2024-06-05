@@ -87,7 +87,8 @@ CREATE TABLE <nome-tabela> (
 );
 ```
 
-> [!WARNING] **A última coluna não tem vírgula no final!!**
+> [!WARNING] 
+> **A última coluna não tem vírgula no final!!**
 
 ### ALTER TABLE
 
