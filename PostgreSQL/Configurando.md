@@ -1,7 +1,7 @@
 # Configurando
 
 [Anterior: Instalação](Instalação.md)
-[Próximo: SQL](SQL.md)
+[Próximo: SQL - Parte 1](SQL.md)
 
 ## Introdução
 
@@ -11,8 +11,6 @@ Há duas formas de se usar SQL agora:
 - pgAdmin.
 
 Veremos a configuração das duas, entretanto, neste tutorial, utilizaremos predominantemente o SQL Shell.
-
-Caso deseje utilizar o pgAdmin, aprenda a utilizá-lo [por aqui](pgAdmin.md).
 
 ## SQLShell
 
@@ -52,8 +50,8 @@ Para configurar seu ambiente PostgreSQL via SQL Shell, siga os seguintes passos:
     postgres=#
     ```
 
-> [!NOTE]
-> Você terá que fazer esse processo todas as vezes que abrir o SQL Shell
+    > [!NOTE]
+    > Você terá que fazer esse processo todas as vezes que abrir o SQL Shell
 
 ## pgAdmin
 
@@ -82,4 +80,4 @@ Para configurar seu pgAdmin, siga os passos abaixo:
 Agora que já instalamos e configuramos o necessário, vamos iniciar os trabalhos com SQL.
 
 [Anterior: Instalação](Instalação.md)
-[Próximo: SQL](SQL.md)
+[Próximo: SQL - Parte 1](SQL.md)

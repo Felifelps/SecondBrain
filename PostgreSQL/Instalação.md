@@ -2,40 +2,38 @@
 
 [Anterior: Introdução](Introdução.md)
 
-Para instalar o PostgreSQL em sua máquina, utilize [este link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) e siga o passo a passo específico para seu sistema operacional.
-
-Aqui documentarei a instalação do PostgreSQL 16.3 no Windows 11 (meu sistema operacional).
+Para instalar o PostgreSQL em sua máquina, utilize [este link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) e siga o passo a passo específico para seu sistema operacional. Aqui documentarei a instalação do PostgreSQL 16.3 no Windows 11 (meu sistema operacional).
 
 ## No Windows
 
 Após instalar e rodar o instalador, você deve encontrar as seguintes páginas:
 
 
-1. Página inicial. Clique em *Next* para iniciar a instalação.
+1. **Página inicial**: Clique em *Next* para iniciar a instalação.
 
 ![Instalação-1](img/instalation-1.png)
 
-2. Diretório de instalação. Não alteraremos o caminho. Clique em *Next* novamente.
+2. **Diretório de instalação**: Não alteraremos o caminho. Clique em *Next* novamente.
 
 ![Instalação-2](img/instalation-2.png)
 
-3. Selecionar componentes. Aqui selecionaremos todos, exceto o Stack Builder (interface gráfica para instalação de módulos extras). Clique em *Next*.
+3. **Selecionar componentes**: Aqui selecionaremos todos, exceto o Stack Builder (interface gráfica para instalação de módulos extras). Clique em *Next*.
 
 ![Instalação-3](img/instalation-3.png)
 
-4. Diretório de dados. Não alteraremos o caminho novamente. Clique em *Next* novamente.
+4. **Diretório de dados**: Não alteraremos o caminho novamente. Clique em *Next* novamente.
 
 ![Instalação-4](img/instalation-4.png)
 
-5. Senha do superuser. **Importante: crie e anote a senha para não esquecer**. Ao criar a senha, Clique em *Next*.
+5. **Senha do superuser**: **Importante: crie e anote a senha para não esquecer**. Lembre de redigitar a senha no segundo campo. Ao criar a senha, Clique em *Next*.
 
 ![Instalação-5](img/instalation-5.png)
 
-6. Porta. Deixaremos a 5432, pois é a convencional. Clique em *Next*.
+6. **Porta**: Deixaremos a 5432, pois é a convencional. Clique em *Next*.
 
 ![Instalação-6](img/instalation-6.png)
 
-7. A partir daqui, apareceram mais algumas telas, mas basta clicar em *Next* em todas, até que a instalação inicie.
+7. A partir daqui, aparecerão mais algumas telas, mas basta clicar em *Next* em todas, até que a instalação inicie.
 
 Após tudo isso, teremos instalado os componentes necessários para nosso tutorial.
 
@@ -53,9 +51,7 @@ O pgAdmin é uma interface gráfica de administração própria para o PostgreSQ
 
 ### Command Line Tools
 
-Como o nome sugere, consiste numa *Command Line Interface* (CLI) cujos comandos estão voltados para o gerenciamento e uso do SGBDR por meio do terminal.
-
-A CLI está disponível a partir do aplicativo SQL Shell.
+Como o nome sugere, consiste numa *Command Line Interface* (CLI) cujos comandos estão voltados para o gerenciamento e uso do SGBDR por meio do terminal. A CLI está disponível a partir do aplicativo SQL Shell.
 
 ## Conclusão
 
