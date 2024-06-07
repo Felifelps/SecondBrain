@@ -1,7 +1,7 @@
 # SQL Básico
 
-[Anterior: Configurando](Configurando.md)
-[Próximo: Estruturando](Estruturando.md)
+[<button>Anterior: Configurando</button>](Configurando.md)
+[<button>Próximo: Estruturando</button>](Estruturando.md)
 
 ## Introdução
 

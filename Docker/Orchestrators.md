@@ -10,4 +10,4 @@ Caso algum dia pretenda fazer, farei atualizações. Mas deixo o link da documen
 
 Obrigado pela leitura, e bons estudos. 
 
-[Voltar ao início](/)
+[Voltar ao início](/README.md)

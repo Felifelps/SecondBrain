@@ -1,6 +1,6 @@
 # Container
 
-[Anterior: Instalação](SecondBrain/Docker/Instalação.md)
+[Anterior: Instalação](Instalação.md)
 [Próximo: Image](Image.md)
 
 ## O que é um container?
@@ -11,7 +11,7 @@ Cada container roda um serviço específico de forma dedicada e isolada. A Docke
 
 ## Criando containeres
 
-A partir de agora, iremos utilizar a CLI do docker para estudar o gerenciamento de containeres de forma prática. Entre em algum terminal, após ter instalado e aberto o [Docker Desktop](SecondBrain/Docker/Instalação.md), e rode o seguinte comando:
+A partir de agora, iremos utilizar a CLI do docker para estudar o gerenciamento de containeres de forma prática. Entre em algum terminal, após ter instalado e aberto o [Docker Desktop](Instalação.md), e rode o seguinte comando:
 
 ```shell
 docker run -it python:3.11-slim
@@ -157,5 +157,5 @@ Alguns comandos importantes:
 
 Acabamos o básico sobre containeres, mas, acima, temos uma lista de comando recorrentes usados para o gerenciamento de containeres. Caso esteja interessado, ou precise, estão por lá. Caso não, vamos para o próximo tópico: images.
 
-[Anterior: Instalação](SecondBrain/Docker/Instalação.md)
+[Anterior: Instalação](Instalação.md)
 [Próximo: Image](Image.md)
