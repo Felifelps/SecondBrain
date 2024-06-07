@@ -29,5 +29,5 @@ Juntamente com o Git, temos o GitHub, que é uma plataforma online que permite q
 
 Neste pequeno tutorial, vamos estudar a instalação e utilização do Git, bem como a disponibilização e colaboração com o GitHub. Vamos lá!
 
-[Próximo: Instalação](SecondBrain/Git/Instalação.md)
+[Próximo: Instalação](Instalação.md)
 

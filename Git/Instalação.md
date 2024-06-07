@@ -15,6 +15,6 @@ $ git --version
 git version 2.36.1.windows.1
 ```
 
-[Anterior: Introdução](Introdução.md)
+[Anterior: Introdução](README.md)
 <br>
 [Próximo: Repositório](Repositório.md)
