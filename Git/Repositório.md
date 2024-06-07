@@ -1,7 +1,9 @@
 # Repositório
 
 [Anterior: Instalação](Instalação.md)
+<br>
 [Próximo: Branch](Branch.md)
+
 ## O que é Repositório?
 
 Repositórios é um espaço, ou diretório, onde os arquivos do projeto são armazenados e gerenciados. Para iniciar um repositório, crie uma pasta chamada `MyRepo`, abra o terminal ou o Git Bash nela, e rode o seguinte comando:
@@ -154,4 +156,5 @@ Você pode checar a localização do `HEAD` com o `git log --oneline`. Você ver
 Aprendemos um pouco do básico do git, mas ainda não terminamos. Ainda temos alguns conceitos fundamentais para trabalhar acerca dessa ferramenta. O próximo será Branch. Vamos com tudo!
 
 [Anterior: Instalação](Repositório.md)
+<br>
 [Próximo: Branch](Branch.md)

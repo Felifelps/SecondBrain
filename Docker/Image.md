@@ -1,6 +1,7 @@
 # Image
 
 [Anterior: Container](Container.md)
+<br>
 [Próximo: Volume](Volume.md)
 
 ## O que é uma image?
@@ -292,5 +293,6 @@ Comandos importantes:
 Ainda existem outras formas de se usar o `AS` e o `--from` que não serão tratadas aqui. Acima temos alguns comandos recorrentes quando se trabalha com images. Vamos para a próxima seção: Volumes.
 
 [Anterior: Container](Container.md)
+<br>
 [Próximo: Volume](Volume.md)
 

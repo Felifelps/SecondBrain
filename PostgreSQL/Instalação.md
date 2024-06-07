@@ -1,6 +1,6 @@
 # Instalação
 
-[Anterior: Introdução](Introdução.md)
+[Anterior: Introdução](README.md)
 
 Para instalar o PostgreSQL em sua máquina, utilize [este link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) e siga o passo a passo específico para seu sistema operacional. Aqui documentarei a instalação do PostgreSQL 16.3 no Windows 11 (meu sistema operacional).
 

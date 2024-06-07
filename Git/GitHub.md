@@ -1,6 +1,7 @@
 # GitHub
 
 [Anterior: Branch](Branch.md)
+<br>
 [Próximo: Colaboração](Colaboração.md)
 
 ## O que é GitHub?
@@ -147,4 +148,5 @@ Alguns comandos Git relacionados ao GitHub:
 Por fim, criamos uma conta no GitHub, e aprendemos a criar um repositório online e alterá-lo localmente. Ainda temos mais um pouco de GitHub no próximo tópico.
 
 [Anterior: Branch](Branch.md)
+<br>
 [Próximo: Colaboração](Colaboração.md)

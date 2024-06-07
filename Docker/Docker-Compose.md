@@ -1,6 +1,7 @@
 # Docker Compose
 
 [Anterior: Network](Network.md)
+<br>
 [Próximo: Orchestrators](Orchestrators.md)
 
 ## O que é Docker Compose?
@@ -254,4 +255,5 @@ secrets:
 Enfim, terminamos de ver um pouco de Docker Compose. Agora, iremos aprender sobre Orchestrators.
 
 [Anterior: Network](Network.md)
+<br>
 [Próximo: Orchestrators](Orchestrators.md)

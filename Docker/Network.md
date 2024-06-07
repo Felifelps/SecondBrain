@@ -1,6 +1,7 @@
 # Network
 
 [Anterior: Volume](Volume.md)
+<br>
 [Próximo: Docker Compose](Docker-Compose.md)
 
 ## O que é uma network?
@@ -112,6 +113,7 @@ Comandos importantes:
 Agora, no tópico seguinte, vamos aprender a criar uma aplicação multi-container mais facilmente com Docker Compose. 
 
 [Anterior: Volume](Volume.md)
+<br>
 [Próximo: Docker Compose](Docker-Compose.md)
 
 

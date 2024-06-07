@@ -1,6 +1,7 @@
 # Branch
 
 [Anterior: Repositório](Repositório.md)
+<br>
 [Próximo: GitHub](GitHub.md)
 
 ## O que é branch?
@@ -166,5 +167,6 @@ Alguns comando úteis quando se trata de branches:
 Acabamos com branches, mas, acima, temos alguns comandos interessantes de se conhecer ao usar branches. Dê uma olhadinha antes de ir para o próximo tópico.
 
 [Anterior: Repositório](Repositório.md)
+<br>
 [Próximo: GitHub](GitHub.md)
 

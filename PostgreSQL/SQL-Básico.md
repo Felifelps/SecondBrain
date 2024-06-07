@@ -1,7 +1,8 @@
 # SQL Básico
 
-[<button>Anterior: Configurando</button>](Configurando.md)
-[<button>Próximo: Estruturando</button>](Estruturando.md)
+[Anterior: Configurando](Configurando.md)
+<br>
+[Próximo: Estruturando](Estruturando.md)
 
 ## Introdução
 
@@ -215,4 +216,5 @@ E pronto! Deletamos a conta de Marcelo!!
 Muita coisa, mas ainda tem mais. Vamos continuar estudando SQL no próximo tópico.
 
 [Anterior: Configurando](Configurando.md)
+<br>
 [Próximo: Estruturando](Estruturando.md)

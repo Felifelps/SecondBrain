@@ -1,6 +1,7 @@
 # Configurando
 
 [Anterior: Instalação](Instalação.md)
+<br>
 [Próximo: SQL Básico](SQL-Básico.md)
 
 ## Introdução
@@ -80,4 +81,5 @@ Para configurar seu pgAdmin, siga os passos abaixo:
 Agora que já instalamos e configuramos o necessário, vamos iniciar os trabalhos com SQL.
 
 [Anterior: Instalação](Instalação.md)
+<br>
 [Próximo: SQL Básico](SQL-Básico.md)

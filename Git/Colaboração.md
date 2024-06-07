@@ -1,6 +1,7 @@
 # Colaboração
 
 [Anterior: GitHub](GitHub.md)
+<br>
 [Próximo: GitHub Actions](Actions.md)
 
 ## Colaborando no GitHub
@@ -85,4 +86,5 @@ Para criar uma issue, siga os passos abaixo:
 Ainda temos as Actions no GitHub, mas esse é um tópico um pouco mais complexo, que veremos em outro tutorial.
 
 [Anterior: GitHub](GitHub.md)
+<br>
 [Próximo: GitHub Actions](Actions.md)

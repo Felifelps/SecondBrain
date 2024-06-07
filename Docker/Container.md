@@ -1,6 +1,7 @@
 # Container
 
 [Anterior: Instalação](Instalação.md)
+<br>
 [Próximo: Image](Image.md)
 
 ## O que é um container?
@@ -158,4 +159,5 @@ Alguns comandos importantes:
 Acabamos o básico sobre containeres, mas, acima, temos uma lista de comando recorrentes usados para o gerenciamento de containeres. Caso esteja interessado, ou precise, estão por lá. Caso não, vamos para o próximo tópico: images.
 
 [Anterior: Instalação](Instalação.md)
+<br>
 [Próximo: Image](Image.md)
