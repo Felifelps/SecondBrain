@@ -1,10 +1,10 @@
-# Introdução
+# PostgreSQL - Tutorial
 
 #### **Partes do tutorial:**
 
 1. [Instalação](Instalação.md)
 2. [Configurando](Configurando.md)
-3. [SQL - Parte 1](SQL.md)
+3. [Básico SQL](Básico-SQL.md)
 
 ## O que é PostgreSQL?
 

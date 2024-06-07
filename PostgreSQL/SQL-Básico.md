@@ -1,7 +1,7 @@
-# SQL
+# SQL Básico
 
 [Anterior: Configurando](Configurando.md)
-[Próximo: SQL - Parte 2](SQL-2.md)
+[Próximo: Estruturando](Estruturando.md)
 
 ## Introdução
 
@@ -25,7 +25,7 @@ De acordo com sua utilidade, os comandos SQL são agrupados em quatro principais
 > [!TIP]
 > Alguns adicionam também a *Data Query Language* (DQL), voltada apenas para consultas (nesse caso, ela faz parte da DML).
 
-Vamos tratar o essencial de cada uma das sublinguagens, a começar pela DDL.
+Neste tópico vamos tratar o essencial da DDL e DML.
 
 ## DDL (Data Definition Language)
 
@@ -208,49 +208,11 @@ WHERE username = "Marcelo";
 E pronto! Deletamos a conta de Marcelo!!
 
 > [!TIP]
-> Se quiser excluir todos os dados de uma tabela, basta executar `DELETE FROM <nome-da-tabela>;`.
-
-## Cláusula WHERE e operadores
-
-A cláusula `WHERE` é uma cláusula bem especial usada para afunilar a execução de cada comando a partir de condições. Ela é usada principalmente em consultas avançadas com o `SELECT`.
-
-Como foi visto em `UPDATE` e `DELETE`, usamos o `WHERE` para especificar o alvo de nossos comandos, que no caso, foram aqueles que atenderam à condição especificada.
-
-Para escrever essas condições, usamos operadores. Nesses casos, usamos operadores de comparação. Mas temos outros tipos de operadores. Vamos ver alguns deles:
-
-### Comparação
-
-| Operador  | Valor              | Exemplo            |
-| --------- | ------------------ | ------------------ |
-|     =     | igual a            | nome = 'Márcio'    |
-| <>        | diferente de       | cash <> 0          |
-| >         | maior que          | idade > 18         |
-| <         | menor que          | taxa_alcool < 0.06 |
-| >=        | maior ou igual que | altura >= 1.75     |
-| <=        | menor ou igual que | IMC <= 25          |
-
-### Aritméticos
-
-| Operador  | Valor                     | Exemplo            |
-| --------- | ------------------------- | ------------------ |
-| +         | adição                    | idade + 5          |
-| -         | subtração                 | saldo - 100        |
-| *         | multiplicação             | preço * quantidade |
-| /         | divisão                   | total / 2          |
-| %         | módulo (resto da divisão) | numero % 2         |
-
-### Lógicos
-
-| Operador  | Valor                  | Exemplo                          |
-| --------- | ---------------------- | -------------------------------- |
-| AND       | e (conjunção)          | idade > 18 AND sexo = 'Feminino' |
-| OR        | ou (disjunção)         | tipo = 'A' OR tipo = 'B'         |
-| NOT       | não (negação)          | NOT status = 'Ativo'             |
-
+> Se quiser excluir todos os dados de uma tabela, basta executar `DELETE FROM <nome-da-tabela>;` (Use com sabedoria).
 
 ## Conclusão
 
 Muita coisa, mas ainda tem mais. Vamos continuar estudando SQL no próximo tópico.
 
 [Anterior: Configurando](Configurando.md)
-[Próximo: SQL - Parte 2](SQL-2.md)
+[Próximo: Estruturando](Estruturando.md)
