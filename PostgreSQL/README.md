@@ -6,7 +6,7 @@
 
 1. [Instalação](Instalação.md)
 2. [Configurando](Configurando.md)
-3. [Básico SQL](Básico-SQL.md)
+3. [SQL Básico](SQL-Básico.md)
 
 ## O que é PostgreSQL?
 
