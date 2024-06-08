@@ -7,6 +7,8 @@
 1. [Instalação](Instalação.md)
 2. [Configurando](Configurando.md)
 3. [SQL Básico](SQL-Básico.md)
+4. [Estruturando](Estruturando.md)
+5. [Diagrama ER](Diagrama-ER.md)
 
 ## O que é PostgreSQL?
 
