@@ -26,7 +26,7 @@ Uma **entidade representa um conceito ou objeto da realidade** como uma tabela n
 
 Vamos entender melhor utilizando o exemplo.
 
-### Exemplo
+## Exemplo
 
 Imagine que eu queira organizar o catálogo de livros de uma biblioteca. Para estruturar esse banco de dados, podemos criar a entidade Livro, com os atributos relacionados ao livro:
 
@@ -60,7 +60,7 @@ No MER, as entidades conversam a partir de **relacionamentos**, que podem ser de
 
 - **muitos para muitos (n:n)**: cada entidade pode se relacionar com uma ou mais entidades do outro tipo. Ex: Um Usuário pode ter vários Usuários como amigos (n) assim como pode ser amigo de vários outros Usuários (n).
 
-### Continuando o exemplo
+## Continuando o exemplo
 
 Agora vamos relacionar as entidades da biblioteca:
 
