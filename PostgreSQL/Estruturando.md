@@ -1,6 +1,6 @@
 # Estruturando
 
-[Anterior: Estruturando](Estruturando.md)
+[Anterior: Configurando](Configurando.md)
 <br>
 [Próximo: Diagrama ER](Diagrama-ER.md)
 
@@ -30,29 +30,30 @@ Vamos entender melhor utilizando o exemplo.
 
 Imagine que eu queira organizar o catálogo de livros de uma biblioteca. Para estruturar esse banco de dados, podemos criar a entidade Livro, com os atributos relacionados ao livro:
 
-**Entidade**: Livro
+| **Entidade**: Livro
+| --------------------------------------------------------- |
+|**Atributos**: Título, Autor, Edição, Gênero, Código, etc.
 
-**Atributos**: Título, Autor, Edição, Gênero, Código, etc.
 
 Logo, teríamos uma tabela Livro com as colunas Título, Autor, Edição...
 
 Aproveitando o embalo, é possível criar ainda várias entidades que complementam a entidade Livro:
 
-**Entidade**: Gênero
-
-**Atributos**: Nome do gênero
+| **Entidade**: Gênero
+| ---------------------------- |
+| **Atributos**: Nome do gênero
 
 e
 
-**Entidade**: Autor
-
-**Atributos**: Nome, Data de Nascimento
+| **Entidade**: Autor
+| --------------------------------------- |
+| **Atributos**: Nome, Data de Nascimento
 
 Acabamos de criar nossas primeiras entidades. Agora, vamos tratar dos relacionamentos entre elas.
 
-## Relacionamentos
+## Relacionamentos e cardinalidades
 
-No MER, as entidades conversam a partir de **relacionamentos**, que podem ser de três tipos:
+No MER, as entidades conversam a partir de **relacionamentos**, que podem ser de três tipos (ou cardinalidades):
 
 - **um para um (1:1)**: cada um dos participantes só faz referência ao outro. Ex: Um Usuário (1) possui um Cronograma (1) de estudos e vice-e-versa.
 
@@ -64,8 +65,12 @@ No MER, as entidades conversam a partir de **relacionamentos**, que podem ser de
 
 Agora vamos relacionar as entidades da biblioteca:
 
-- Livro <(n)--(1)> Gênero
-- Autor <(n)--(n)> Livro
+- Livro <($n$)--($1$)> Gênero:
+    - Um livro possui $1$ gênero
+    - Um gênero identifica $n$ livros
+- Autor <($n$)--($n$)> Livro
+    - Um autor pode escrever $n$ livros
+    - Um livro pode ter $n$ autores
 
 Agora temos as relações. Mas ainda falta um ponto importante: como eu posso identificar cada tabela?
 
@@ -136,6 +141,6 @@ Então, como vemos, a tabela Amizades, que representa o relacionamento entre os 
 
 Agora que aprendemos a estruturar bancos de dados relacionais, aprenderemos a representar graficamente esse modelo.
 
-[Anterior: Estruturando](Estruturando.md)
+[Anterior: Configurando](Configurando.md)
 <br>
 [Próximo: Diagrama ER](Diagrama-ER.md)
