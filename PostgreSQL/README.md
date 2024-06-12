@@ -9,6 +9,8 @@
 3. [SQL Básico](SQL-Básico.md)
 4. [Estruturando](Estruturando.md)
 5. [Diagrama ER](Diagrama-ER.md)
+6. [Normalização](Normalização.md)
+7. [Consultas](Consultas.md)
 
 ## O que é PostgreSQL?
 
