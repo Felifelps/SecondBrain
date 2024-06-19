@@ -166,7 +166,6 @@ e limitamos o resultado à três linhas.
 */
 ```
 
-
 ## Conclusão
 
 Ainda há muito a se ver em relação às consultas. Vamos com tudo!

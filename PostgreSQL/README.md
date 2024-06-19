@@ -11,6 +11,7 @@
 5. [Diagrama ER](Diagrama-ER.md)
 6. [Normalização](Normalização.md)
 7. [Consultas](Consultas.md)
+8. [Funções de agregação](Funções-de-Agregação.md)
 
 ## O que é PostgreSQL?
 

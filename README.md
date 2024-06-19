@@ -23,4 +23,5 @@ Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga 
 
 - ~~Docker~~
 - ~~Git/GitHub~~
-- PostgreSQL 
+- PostgreSQL
+- Trocar a língua para inglês
