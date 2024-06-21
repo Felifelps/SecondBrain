@@ -1,3 +1,6 @@
 save.bat
 **/ordem.md
-Ignore
+**.env
+**.py
+**.html
+.venv
