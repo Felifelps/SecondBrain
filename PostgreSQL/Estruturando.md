@@ -82,7 +82,7 @@ A chave primária de uma tabela é a coluna que identifica unicamente cada regis
 
 Ex:
 
-Tabela Autor
+Tabela autores
 
 | id | nome    | data_nasc
 | -- | ------- | ---
@@ -97,7 +97,7 @@ Já uma **chave estrangeira** é **uma chave primária referenciada em outra tab
 
 Ex:
 
-Tabela Livro
+Tabela livros
 
 | id | titulo  | autor | ... |
 | -- | ------- | ----- | --- |
@@ -109,6 +109,40 @@ Tabela Livro
 Na tabela Livro, temos a coluna `id`, que é a chave primária dessa tabela, e, para referenciar o autor, temos a coluna `autor`, que referencia a chave primária do autor do livro. 
 
 O autor do Livro 1 é o Autor 2, e assim por diante.
+
+### No SQL
+
+Podemos adicionar chaves estrangeiras na criação de uma tabela ou depois.
+
+Na criação temos:
+
+```sql
+CREATE TABLE livros (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    autor_id INT,
+    FOREIGN KEY (autor_id) REFERENCES autores(autor_id) ON DELETE CASCADE
+);
+```
+
+E após temos:
+
+```sql
+ALTER TABLE livros
+ADD CONSTRAINT fk_autor
+FOREIGN KEY (autor_id)
+REFERENCES autores(autor_id);
+```
+
+### ON DELETE
+
+Seria quebra de integridade deletar um autor e deixar os livros, pois eles não teriam mais a referência do autor.
+
+Para especificar como agir a isso, ao definirmos um `FOREIGN KEY`, definimos o `ON DELETE` com uma das opções abaixo:
+
+- `NO ACTION`: retorna erro de integridade.
+- `CASCADE`: deleta todas as linhas que referenciam a linha deletada.
+- `SET NULL` ou `SET DEFAULT`: coloca a coluna de referência como `NULL` ou como o valor padrão da coluna, respectivamente.
 
 ## Muitos para muitos
 

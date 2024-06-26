@@ -2,7 +2,7 @@
 
 [Anterior: Consultas](Consultas.md)
 <br>
-[Próximo: Where](Where.md)
+[Próximo: Join](Join.md)
 
 ## Introdução
 
@@ -40,15 +40,18 @@ Esse comando retornaria:
 (1 linha)
 ```
 
-### Com o GROUP BY
+## GROUP BY e HAVING
 
 Com o GROUP BY, podemos ver qual o menor preço, por exemplo, para cada categoria de produto.
+
+A cláusula HAVING funciona como a WHERE, mas para o GROUP BY.
 
 ```sql
 SELECT 
     MIN(preco) AS menor_preco, categoria
 FROM produtos
-GROUP BY categoria;
+GROUP BY categoria
+HAVING menor_preco > 7.5
 ```
 
 ```
@@ -99,9 +102,8 @@ Neste comando, meço a média de salários dos funcionários.
 
 ## Conclusão
 
-Aqui vimos as principais funções de agregação do SQL. No próximo tópico veremos usos diferentes do WHERE.
-
+Aqui vimos as principais funções de agregação do SQL. No próximo tópico veremos como combinar tabelas no SQL.
 
 [Anterior: Consultas](Consultas.md)
 <br>
-[Próximo: Where](Where.md)
+[Próximo: Join](Join.md)

@@ -79,6 +79,39 @@ WHERE nome = 'João';
  ----------- | - | - | - | -- | -- | -- | ------- | ---- | -- | --
  **Função**  | Maior que | Menor que | Igual a | Diferente de | Maior/igual a | Menor/Igual a | Entre dois valores | Se o texto obedece a um padrão | Se o valor está numa lista | Checa se é igual a uma constante (geralmente se é NULL)
 
+
+### Exemplos
+
+`BETWEEN`: Pode ser usado também com valores textuais e datas (entre aspas simples).
+
+```sql
+SELECT *
+FROM funcionarios
+WHERE salario BETWEEN 1000 AND 5000;
+```
+
+`LIKE`: é usado no `WHERE` para buscar padrões em strings. `%` representa qualquer número de caracteres e `_` representa um único.
+
+```sql
+SELECT *
+FROM funcionarios
+WHERE name LIKE 'Fe__fel%';
+/* Pega todos os funcionarios cujo nome:
+- comece com Fe
+- siga com dois caracteres quaisquer
+- tenha fel
+- e não importa o final (% é quantos e quaisquer caracteres)
+*/
+```
+
+`IN`: É verdadeiro se o valor estiver dentro dos valores especificados. Também funciona para [subconsultas](Subconsultas.md).
+
+```sql
+SELECT *
+FROM funcionarios
+WHERE setor IN ('Marketing', 'TI', 'Financeiro');
+```
+
 ## ORDER BY
 
 Ordena o resultado de acordo com uma coluna específica.

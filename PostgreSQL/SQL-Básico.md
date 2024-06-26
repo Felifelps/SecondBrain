@@ -2,7 +2,7 @@
 
 [Anterior: Configurando](Configurando.md)
 <br>
-[Próximo: Estruturando](Estruturando.md)
+[Próximo: SQL Básico Parte 2](SQL-Básico2.md)
 
 ## Introdução
 
@@ -26,13 +26,11 @@ De acordo com sua utilidade, os comandos SQL são agrupados em quatro principais
 > [!TIP]
 > Alguns adicionam também a *Data Query Language* (DQL), voltada apenas para consultas (nesse caso, ela faz parte da DML).
 
-Neste tópico vamos tratar o essencial da DDL e DML.
-
-## DDL (Data Definition Language)
+Neste tópico vamos tratar o essencial da DDL.
 
 Os comandos da DDL são voltados para a criação, manipulação e exclusão de tabelas no banco de dados. A melhor forma de aprender, é na prática.
 
-### CREATE TABLE
+## CREATE TABLE
 
 Conecte-se ao SQL Shell, como feito no [tópico anterior](Configurando.md#sqlshell), e rode o seguinte código (basta copiar, colar no SQL Shell e apertar enter):
 
@@ -91,7 +89,28 @@ CREATE TABLE <nome-tabela> (
 > [!WARNING] 
 > **A última coluna não tem vírgula no final!!**
 
-### ALTER TABLE
+## Data Types
+
+Como vimos, ao criar as colunas, definimos um tipo para os valores que serão inseridos nela. Esses são os Data Types.
+
+Os mais utilizados do Postgres são:
+
+- **integer (ou int)**: Armazena números inteiros de tamanho médio. Ex: `age INTEGER`.
+- **numeric (ou decimal)**: Armazena números com precisão exata. Ex: `price NUMERIC(10, 2)`.
+- **varchar(n)**: Cadeia de caracteres com tamanho variável. Ex: `name VARCHAR(50)`.
+- **text**: Cadeia de caracteres com tamanho variável sem limite específico. Ex: `description TEXT`.
+- **date**: Armazena uma data (ano, mês, dia). Ex: `birthdate DATE`.
+- **timestamp**: Armazena data e hora (com ou sem fuso horário). Ex: `created_at TIMESTAMP`, `updated_at TIMESTAMP WITH TIME ZONE`.
+- **boolean**: Armazena valores booleanos (true, false). Ex: `is_active BOOLEAN`.
+- **json/jsonb**: Armazena dados JSON. Ex: `metadata JSONB`.
+- **uuid**: Identificador universal único. Ex: `uuid UUID`.
+- **array**: Armazena um array de qualquer tipo de dado. Ex: `tags TEXT[]`.
+- **inet**: Endereço de host IP. Ex: `ip_address INET`.
+
+> [!TIP] 
+> Caso queira se aprofundar nos Data Types, visite [esse site](https://www.geeksforgeeks.org/postgresql-data-types/).
+
+## ALTER TABLE
 
 Ainda com o SQL Shell aberto, vamos alterar a tabela que criamos. Rode o seguinte comando:
 
@@ -127,7 +146,7 @@ DROP COLUMN sobrenome;
 
 E pronto! Agora, se você usar o `SELECT` novamente, verá uma tabela vazia com as colunas `nome` e `email`.
 
-### DROP TABLE
+## DROP TABLE
 
 Mas uma tabela vazia, por enquanto, não é necessária. Vamos deletá-la do banco de dados:
 
@@ -137,84 +156,10 @@ DROP TABLE client;
 
 E pronto! A tabela `client` foi excluída do database!
 
-## DML (Data Manupulation Language)
-
-A DML inclui comandos relacionados à manipulação de registros (linhas) das tabelas. Como no tópico anterior, vamos aprender os principais comandos na prática.
-
-### SELECT
-
-O `SELECT`, como já vimos, tem como função selecionar determinados dados de uma ou mais tabelas. Por enquanto, veremos apenas consultas simples. 
-
-Para praticarmos, crie uma nova tabela:
-
-```sql
-CREATE TABLE users (
-    username VARCHAR(255),
-    email VARCHAR(255),
-    followers INT
-);
-```
-
-Para selecionar certas colunas da tabela, basta especificá-las no comando:
-
-```sql
-SELECT username, email FROM users;
-```
-
-Caso queira selecionar apenas a coluna `email`, use:
-
-```sql
-SELECT email FROM users;
-```
-
-Como ainda não temos nenhum registro, apenas vimos tabelas vazias. Vamos criar alguns usuários.
-
-### INSERT INTO
-
-Para inserir registros (linhas) numa tabela, usamos o comando `INSERT INTO`. Vamos criar alguns usuários:
-
-```sql
-INSERT INTO users (username, email, followers) 
-VALUES 
-    ('João', 'joão@email.com', 45),
-    ('Maria', 'maria@email.com', 0),
-    ('Marcelo', 'marcelo@email.com', 1);
-```
-
-Caso queira ver os registros, use um `SELECT` para ver as linhas adicionadas.
-
-> [!WARNING]
-> Como se pode ver acima, **ao adicionar textos (para VARCHARs por exemplo), devemos colocá-los entre aspas simples ('')!**
-
-### UPDATE
-
-Digamos que Maria tenha ganhado alguns seguidores e precisemos editar a tabela para adicioná-los. Podemos usar o seguinte comando para isso:
-
-```sql
-UPDATE users
-SET followers = 5
-WHERE username = 'Maria';
-```
-Observe a mudança com o `SELECT`.
-
-### DELETE
-
-Agora, digamos que Marcelo tenha excluído sua conta de usuário. Não é mais necessário que eu tenha dados sobre essa conta em minha tabela, portanto, vamos removê-la:
-
-```sql
-DELETE FROM users
-WHERE username = "Marcelo";
-```
-
-E pronto! Deletamos a conta de Marcelo!!
-
-> [!TIP]
-> Se quiser excluir todos os dados de uma tabela, basta executar `DELETE FROM <nome-da-tabela>;` (Use com sabedoria).
-
 ## Conclusão
 
-Muita coisa, mas ainda tem mais. Vamos continuar estudando SQL no próximo tópico.
+Agora que vimos o básico da DML, nos introduzimos ao uso do SQL. No próximo tópico, veremos o essencial acerca da DML!
 
 [Anterior: Configurando](Configurando.md)
 <br>
-[Próximo: Estruturando](Estruturando.md)
+[Próximo: SQL Básico Parte 2](SQL-Básico2.md)
