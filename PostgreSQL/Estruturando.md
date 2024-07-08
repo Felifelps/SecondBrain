@@ -1,6 +1,6 @@
 # Estruturando
 
-[Anterior: Configurando](Configurando.md)
+[Anterior: SQL Básico Parte 2](SQL-Básico2.md)
 <br>
 [Próximo: Diagrama ER](Diagrama-ER.md)
 
@@ -175,6 +175,6 @@ Então, como vemos, a tabela Amizades, que representa o relacionamento entre os 
 
 Agora que aprendemos a estruturar bancos de dados relacionais, aprenderemos a representar graficamente esse modelo.
 
-[Anterior: Configurando](Configurando.md)
+[Anterior: SQL Básico Parte 2](SQL-Básico2.md)
 <br>
 [Próximo: Diagrama ER](Diagrama-ER.md)
