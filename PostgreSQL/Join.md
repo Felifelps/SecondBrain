@@ -6,16 +6,16 @@
 
 ## Introdução
 
-A cláusula `JOIN` é usada para combinar dados de várias tabelas a partir de uma coluna.
+A cláusula `JOIN` é usada para combinar dados de várias tabelas a partir de um par de colunas correspondentes.
 
-Um `JOIN` envolve alguns pontos principais:
-- A primeira tabela, chamada de *left table*
-- A segunda tabela, chamada de *right table*
-- As colunas que vamos relacionar
+Um `JOIN` envolve três pontos principais:
+- A *left table*
+- A *right table*
+- E as colunas relacionadas
 
 Temos quatro tipos principais de `JOIN`: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN` e `FULL OUTER JOIN`.
 
-![Diagrama de JOINS](https://learnsql.com.br/blog/como-aprender-sql-joins/2.png)
+![Diagrama de JOINS](https://www.dofactory.com/img/sql/sql-joins.png)
 
 Ainda há a possibilidade de se usar `JOIN` casos mais específicos, mas não abordarei por aqui.
 
