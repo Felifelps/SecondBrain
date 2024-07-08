@@ -8,9 +8,20 @@
 
 A cláusula `JOIN` é usada para combinar dados de várias tabelas a partir de uma coluna.
 
-Existem vários tipos de `JOIN`, cada um com sua utilidade. É mais fácil de entender na prática.
+Um `JOIN` envolve alguns pontos principais:
+- A primeira tabela, chamada de *left table*
+- A segunda tabela, chamada de *right table*
+- As colunas que vamos relacionar
 
-## Exemplo
+Temos quatro tipos principais de `JOIN`: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN` e `FULL OUTER JOIN`.
+
+![Diagrama de JOINS](https://learnsql.com.br/blog/como-aprender-sql-joins/2.png)
+
+Ainda há a possibilidade de se usar `JOIN` casos mais específicos, mas não abordarei por aqui.
+
+Vamos entender na prática.
+
+## INNER JOIN
 
 Tabela Users
  user_id |  name   | idade
@@ -48,54 +59,15 @@ O resultado da consulta será esse:
   1       |           2 | Arroz integral |       2 | Marcelo |    42
   2       |           1 | Óleo de soja   |       1 | Marcos  |    26
 
-## Entendendo o exemplo
-
 O `INNER JOIN` acabou de "combinar" as colunas das duas tabelas, e devolveu os registros nso quais as colunas `customer_id` e `user_id` têm o mesmo valor.
 
-Se combinarmos isso aos aliases e especificarmos as colunas, podemos gerar consultas precisas e interessantes.
+Obeserve que a tabela `orders` é a *left table*, a `users` é a *right table* e `customer_id` e `user_id` são as colunas relacionadas.
 
-Caso queiramos saber que usuário comprou tal produto, podemos realizar a seguinte consulta:
+## LEFT JOIN
 
-```sql
-SELECT
-  Users.name AS Usuario,
-  Orders.product_name AS Produto
-FROM Orders
-INNER JOIN Users 
-ON Orders.customer_id = Users.user_id;
-```
+Retorna as linhas coincidentes e as linhas da *left table*.
 
-Assim, teremos o resultado:
-
- Usuario   |    Produto
----------- | ---------------
- Marcelo   | Arroz integral
- Marcos    | Óleo de soja
-
-## Tipos de JOIN
-
-Como vimos, o `JOIN` envolve alguns pontos principais:
-- A primeira tabela, chamada de *left table*
-- A segunda tabela, chamada de *right table*
-- As colunas que vamos relacionar
-
-Temos quatro tipos principais de `JOIN`:
-- `INNER JOIN`: retorna todas as linhas que se correspondem nas duas tabelas;
-- `LEFT JOIN`: retorna as linahs do `INNER JOIN`, mais todos os registros da *left table*
-- `RIGHT JOIN`: retorna as linahs do `INNER JOIN`, mais todos os registros da *right table*
-- `FULL OUTER JOIN`: retorna tudo de todos.
-
-![Diagrama de JOINS](https://learnsql.com.br/blog/como-aprender-sql-joins/2.png)
-
-Ainda há a possibilidade de se usar `JOIN` casos mais específicos, mas não abordarei por aqui.
-
-## Exemplos novamente
-
-Ainda usando as tabelas `Users` e `Orders`, vamos exemplificar os tipos apresentados:
-
-### LEFT JOIN
-
-Consulta: 
+Ex:
 
 ```sql
 SELECT * 
@@ -112,11 +84,11 @@ Resultado:
 |        2 |           1 | Óleo de soja   |       1 | Marcos  |    26 |
 |        3 |             | Carne de Sol   |         |         |       |
 
-Retornamos as linhas coincidentes e as linhas de `orders` (nossa *left table*).
-
 ### RIGHT JOIN
 
-Consulta: 
+Retorna as linhas coincidentes e as linhas da *right table*.
+
+Ex:
 
 ```sql
 SELECT * 
@@ -134,11 +106,11 @@ Resultado:
 |          |             |                |       4 | João    |    37 |
 |          |             |                |       3 | Carla   |    19 |
 
-Todos os valores do `INNER JOIN` mais os valores de `users`.
-
 ### FULL OUTER JOIN
 
-Consulta: 
+Retorna todos os valores das duas tabelas, relacionando as duas.
+
+Ex:
 
 ```sql
 SELECT * 
@@ -156,8 +128,6 @@ Resultado:
 |        3 |             | Carne de Sol   |         |         |       |
 |          |             |                |       4 | João    |    37 |
 |          |             |                |       3 | Carla   |    19 |
-
-Todos os valores das duas tabelas, relacionando as tabelas.
 
 ## Conclusão
 
