@@ -115,7 +115,7 @@ Ex:
 ```sql
 SELECT * 
 FROM Orders 
-FULL OUTER JOIN JOIN Users
+FULL OUTER JOIN Users
 ON Orders.customer_id = Users.user_id;
 ```
 
