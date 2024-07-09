@@ -23,6 +23,8 @@ Vamos entender na prática.
 
 ## INNER JOIN
 
+Analise as tabelas abaixo.
+
 Tabela Users
  user_id |  name   | idade
  ------- | ------- | ------
@@ -41,15 +43,15 @@ Tabela Orders
 > [!NOTE]
 > Células vazias representam `null`. A terceira linha possui um valor `null` propositalmente.
 
-Nesse exemplo, a coluna `customer_id`, da tabela `Orders`, equivale (é uma *FOREIGN KEY*) à coluna `user_id` da tabela `Users`.
+Nesse exemplo, a coluna `customer_id`, da tabela `Orders` é uma *FOREIGN KEY*, e faz referência à coluna `user_id` da tabela `Users`.
 
-Para relacionar os usuários às compras, podemos usar um `INNER JOIN` para uní-las:
+Para relacionar os usuários às compras, a partir dessa relação, podemos usar um `INNER JOIN` para uní-las:
 
 ```sql
 SELECT * 
-FROM Orders 
-INNER JOIN Users
-ON Orders.customer_id = Users.user_id;
+FROM Orders /* Orders é a left table */
+INNER JOIN Users /* Users é a right table */
+ON Orders.customer_id = Users.user_id;  /* As colunas referenciadas */
 ```
 
 O resultado da consulta será esse:
@@ -59,13 +61,13 @@ O resultado da consulta será esse:
   1       |           2 | Arroz integral |       2 | Marcelo |    42
   2       |           1 | Óleo de soja   |       1 | Marcos  |    26
 
-O `INNER JOIN` acabou de "combinar" as colunas das duas tabelas, e devolveu os registros nso quais as colunas `customer_id` e `user_id` têm o mesmo valor.
+O `INNER JOIN` acabou de "combinar" as colunas das duas tabelas, e devolveu os registros nos quais as colunas `customer_id` e `user_id` têm o mesmo valor.
 
 Obeserve que a tabela `orders` é a *left table*, a `users` é a *right table* e `customer_id` e `user_id` são as colunas relacionadas.
 
 ## LEFT JOIN
 
-Retorna as linhas coincidentes e as linhas da *left table*.
+Retorna o mesmo que o `INNER JOIN`, mais as demais linhas da *left table*.
 
 Ex:
 
@@ -86,7 +88,7 @@ Resultado:
 
 ### RIGHT JOIN
 
-Retorna as linhas coincidentes e as linhas da *right table*.
+Retorna o mesmo que o `INNER JOIN`, mais as demais linhas da *right table*.
 
 Ex:
 
