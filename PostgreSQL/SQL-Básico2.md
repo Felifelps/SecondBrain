@@ -28,10 +28,10 @@ Para selecionar certas colunas da tabela, basta especificá-las no comando:
 SELECT username, email FROM users;
 ```
 
-Caso queira selecionar apenas a coluna `email`, use:
+Caso queira selecionar todas as colunas, use um `*`:
 
 ```sql
-SELECT email FROM users;
+SELECT * FROM users;
 ```
 
 Como ainda não temos nenhum registro, apenas vimos tabelas vazias. Vamos criar alguns usuários.
