@@ -33,12 +33,9 @@ FROM produtos;
 
 Esse comando retornaria:
 
-```
  menor_preco | maior_preco
--------------+-------------
+------------ | ------------
  2.5         | 13.0
-(1 linha)
-```
 
 ## GROUP BY e HAVING
 
@@ -54,13 +51,12 @@ GROUP BY categoria
 HAVING menor_preco > 7.5
 ```
 
-```
+Resultado:
+
  categoria | menor_preco
------------+-------------
+---------- | ------------
  1         | 13.0
  2         | 1.52
-(1 linha)
-```
 
 ## COUNT
 
