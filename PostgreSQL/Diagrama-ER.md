@@ -6,11 +6,11 @@
 
 ## Introdução
 
-Para melhor visualização do MER, foi criado o *Diagrama Entidade-Relacionamento* (DER). Por meio dele representamos os conceitos do MER visualmente por meio de formas geométricas.
+Para melhor visualização do MER, foi criado o *Diagrama Entidade-Relacionamento* (DER). No DER, representamos os conceitos do MER por meio de formas geométricas.
 
 ## Formas
 
-No DER, usamos as seguintes figuras:
+Para fazer a modelagem, usamos as seguintes figuras:
 
 - **Retângulo**: representa entidades;
 - **Círculo**: representa atributos;
