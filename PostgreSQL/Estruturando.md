@@ -10,17 +10,15 @@ Agora que aprendemos a criar e manipular tabelas com SQL, vamos aprender como fu
 
 Para que os dados possam ser facilmente acessados e estejam nem organizados é necessária uma boa estruturação das tabelas e colunas. 
 
-Isso pode ser feito a partir do *Modelo Entidade-Relacionamento* (MER).
+Isso pode ser feito a partir do *Modelo Entidade-Relacionamento* (MER). O MER permite estruturar um banco de dados de forma que ele abstraia eficientemente conceitos da realidade.
 
-## Modelo Entidade-Relacionamento
-
-Para estruturar um banco de dados de forma que ele abstraia eficientemente conceitos da realidade, utilizamos o MER.
+## Entidades e atributos
 
 Segundo o MER, primeiro devemos abstrair as entidades e seus atributos da realidade e colocá-los no modelo.
 
-Uma **entidade representa um conceito ou objeto da realidade** como uma tabela no banco de dados. Cada entidade possui características comuns chamadas de **atributos**, que são as colunas da tabela.
+Uma **entidade representa um conceito ou objeto da realidade** (uma tabela no banco de dados). Cada entidade possui características comuns chamadas de **atributos** (as colunas da tabela).
 
-Vamos entender melhor utilizando o exemplo.
+Vamos entender melhor utilizando um exemplo.
 
 ## Exemplo
 
@@ -61,12 +59,12 @@ No MER, as entidades conversam a partir de **relacionamentos**, que podem ser de
 
 Agora vamos relacionar as entidades da biblioteca:
 
-- Livro <($n$)--($1$)> Gênero:
-    - Um livro possui $1$ gênero
-    - Um gênero identifica $n$ livros
-- Autor <($n$)--($n$)> Livro
-    - Um autor pode escrever $n$ livros
-    - Um livro pode ter $n$ autores
+- Livro <(n)--(1)> Gênero:
+    - Um livro possui 1 gênero
+    - Um gênero identifica n livros
+- Autor <(n)--(n)> Livro
+    - Um autor pode escrever n livros
+    - Um livro pode ter n autores
 
 Agora temos as relações. Mas ainda falta um ponto importante: como eu posso identificar cada tabela?
 
@@ -108,7 +106,7 @@ O autor do Livro 1 é o Autor 2, e assim por diante.
 
 ### No SQL
 
-Podemos adicionar chaves estrangeiras na criação de uma tabela ou depois.
+Podemos adicionar chaves estrangeiras durante a criação de uma tabela ou após sua criação.
 
 Na criação temos:
 
