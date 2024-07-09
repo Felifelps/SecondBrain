@@ -16,10 +16,6 @@ Isso pode ser feito a partir do *Modelo Entidade-Relacionamento* (MER).
 
 Para estruturar um banco de dados de forma que ele abstraia eficientemente conceitos da realidade, utilizamos o MER.
 
-Para aprendermos a utilizá-lo, faremos um exemplo simples.
-
-## Entidades
-
 Segundo o MER, primeiro devemos abstrair as entidades e seus atributos da realidade e colocá-los no modelo.
 
 Uma **entidade representa um conceito ou objeto da realidade** como uma tabela no banco de dados. Cada entidade possui características comuns chamadas de **atributos**, que são as colunas da tabela.
