@@ -45,12 +45,12 @@ Tabela Orders
 
 Nesse exemplo, a coluna `customer_id`, da tabela `Orders` é uma *FOREIGN KEY*, e faz referência à coluna `user_id` da tabela `Users`.
 
-Para relacionar os usuários às compras, a partir dessa relação, podemos usar um `INNER JOIN` para uní-las:
+Para relacionar os usuários às compras, a partir dessa relação, podemos usar um `INNER JOIN` (pode escrever apenas JOIN) para uní-las:
 
 ```sql
 SELECT * 
 FROM Orders /* Orders é a left table */
-INNER JOIN Users /* Users é a right table */
+JOIN Users /* Users é a right table */
 ON Orders.customer_id = Users.user_id;  /* As colunas referenciadas */
 ```
 
