@@ -44,6 +44,29 @@ SELECT *
 FROM nome_da_tabela;
 ```
 
+## AS
+
+É possível renomear temporariamente colunas ou tabelas num SELECT por meio do AS.
+
+```sql
+SELECT
+  coluna1 AS ColunaUm,
+  coluna1 AS "Coluna Dois" /* Use aspas duplas para nomes compostos*/
+FROM nome_da_tabela AS novo_nome_tabela
+```
+
+Esse exemplo retorna:
+
+ColunaUm | Coluna Dois
+ ------- | ----------
+ Valor 1 | Valor 2
+
+Renomear tabelas é bem útil ao se utilizar [joins](Join.md) ou [subconsultas](Subconsultas.md).
+
+> [!NOTE]
+> O AS é opcional. É possível usar um alias sem escrever o AS:
+> Ex: `SELECT coluna1 ColunaUm FROM tabela NovoNomeTabela;`
+
 ## SELECT DISTINCT
 
 Retorna apenas valores distintos, sem repetição.
