@@ -48,31 +48,10 @@ Além de servirem como condição, subconsultas podem ser usadas com o FROM para
 
 ```sql
 SELECT
-  p.categoria,
-  SUM(sub.total_vendido) AS total_vendido
-FROM
-  produtos AS p
-JOIN (
-  SELECT
-    produto_id,
-    SUM(quantidade) AS total_vendido
-  FROM vendas
-  GROUP BY produto_id
-) AS sub
-ON p.produto_id = sub.produto_id
-GROUP BY p.categoria;
-```
-
-Este exemplo usa um JOIN para unir as duas consultas. Vamos entendê-lo melhor:
-- A subconsulta (sub) retorna uma tabela relacionando o id de cada produto ao seu número total de vendas (obtido pela soma da quantidade vendida em cada venda).
-- A consulta externa relaciona as categorias dos produtos com o total vendido por categoria (obtido com a soma do total de vendas de cada produto da categoria).
-
-```sql
-SELECT
-  users.name,
+  customers.name,
   sub.product_name,
   MAX(sub.total) AS max 
-FROM users 
+FROM customers 
 JOIN (
   SELECT
     customer,
@@ -81,8 +60,8 @@ JOIN (
   FROM orders
   GROUP BY customer, product_name
 ) as sub 
-ON users.id = sub.customer 
-GROUP BY users.name, sub.product_name 
+ON customers.id = sub.customer 
+GROUP BY customers.name, sub.product_name 
 ORDER BY max DESC 
 LIMIT (
   SELECT
@@ -95,6 +74,39 @@ LIMIT (
   )
 );
 ```
+
+Essa consulta enorme gera uma tabela que retorna o produto mais comprado por cada usuário, e o número de vezes que foi comprado. Vamos entender cada passo:
+
+- Há duas subconsultas nessa consulta. Vamos olhar a primeira:
+  ```sql
+  (
+    SELECT
+      customer,
+      product_name,
+      COUNT(*) AS total
+    FROM orders
+    GROUP BY customer, product_name
+  ) as sub
+  ```
+  Aqui, a consulta retorna o nome do cliente, o nome do produto e quantas vezes ele foi comprado por esse cliente.
+  Ex: Cliente 1 | Produto 1 | 2
+  A tabela é chamada de sub.
+
+- A segunda subconsulta se refere ao parâmetro do LIMIT, que deve ser um único valor inteiro:
+  ```sql
+  LIMIT (
+    SELECT
+      COUNT(customer)
+    FROM (
+      SELECT DISTINCT customer
+      FROM orders
+      GROUP BY customer
+      HAVING customer IS NOT NULL
+    )
+  );
+  ```
+  Esta subconsulta tem outra subconsulta. A mais interna retorna todos os ids distintos da tabela orders.
+  A externa conta quantas linhas a interna retorna. Nesse caso, isso é usado para limitar a 
 
 [Anterior: Join](Join.md)
 <br>
