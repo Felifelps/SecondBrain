@@ -16,4 +16,5 @@ jobs:
           python-version: '3.x'
 
       - name: Set the subtopics
-        run: ls && python subtopics.py -a
+        run: python subtopics.py -a
+      
