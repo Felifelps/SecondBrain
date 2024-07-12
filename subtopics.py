@@ -113,7 +113,7 @@ def main():
                 main_file = os.path.join(directory, 'README.md')
                 if directory not in IGNORE_DIRS and os.path.exists(main_file):
                     add_subtopics(directory, main_file, subtopic_prefix)
-            sys.exit(1)
+            return
 
         # Getting the base dir
         base = args[1].replace('\\', '')
