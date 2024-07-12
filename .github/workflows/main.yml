@@ -7,5 +7,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Verificar o código
+        uses: actions/checkout@v2
+  
+      - name: Configurar o ambiente Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
       - name: Set the subtopics
-        run: cd .. && python subtopics.py -a
+        run: ls && python subtopics.py -a
