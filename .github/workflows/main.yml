@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Checando se há mudanças
+        run: |
+          git add .
+          git diff --cached --quiet || echo "has_changes=true" > $GITHUB_ENV
+
       # Roda o comando para adicionar os subtópicos
       - name: Adicionando subtópicos
         run: python subtopics.py -a
@@ -28,11 +33,12 @@ jobs:
       - name: Commitando as mudanças
         # As primeiras duas linhas são para setar o bot
         # das actions para fazer o push
+        if: env.has_changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -m "Updated subtopics"
-          git push
+          git commit -m "Updated subtopics" || echo "Nothing to commit"
+          git push || echo "Nothing to push"
         # É necessário usar esse token
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
