@@ -23,8 +23,14 @@ The sintax to use is:
     - -a: Stands for "all". Mades the process to all the dirs
 """
 
+def generate_slug(string: str):
+    forbidden_chars = '.?'
+    for char in forbidden_chars:
+        string = string.replace(char, '')
+    return string.lower().replace(' ', '-')
+
 def add_file_subtopics_list(base, file_name, data, subtopic_prefix):
-    topic_pattern = r'## [^&]*'
+    topic_pattern = r'&## [^&]*'
     try:
         file_path = os.path.join(base, file_name)
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -37,8 +43,12 @@ def add_file_subtopics_list(base, file_name, data, subtopic_prefix):
 
     topics_list = ''
     for topic in topics:
-        topic = topic.replace('## ', '').strip()
-        final_link = f'[{topic}]({file_name}#{topic.replace(" ", "%20")})'
+        topic = topic.replace('&## ', '').strip()
+
+        # Generates the title slug
+        slug = generate_slug(topic)
+
+        final_link = f'[{topic}]({file_name}#{slug})'
         # Checks if the link is already on data
         if final_link in data:
             continue
