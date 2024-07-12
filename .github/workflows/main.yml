@@ -1,0 +1,11 @@
+name: myWorkflow
+
+on: [push]
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set the subtopics
+        run: python subtopics.py -a
