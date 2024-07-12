@@ -1,4 +1,4 @@
-name: myWorkflow
+name: Subtopics
 
 on: [push]
 
@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: Set the subtopics
-        run: python subtopics.py -a
+        run: ls
