@@ -92,7 +92,9 @@ ON customers.id = sub.customer_id;
 
 ## Conclusão
 
-Subconsultas são muito úteis em consultas mais complexas, pois permite combinar várias condições diferentes num único código. No próximo tópico, melhoraremos ainda mais nossas consultas com views.
+Subconsultas são muito úteis em consultas mais complexas, pois permitem combinar várias condições e resultados diferentes num único código.
+
+No próximo tópico, melhoraremos ainda mais nossas consultas com views.
 
 [Anterior: Join](Join.md)
 <br>
