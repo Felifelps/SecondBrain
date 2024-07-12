@@ -38,61 +38,61 @@ HAVING emprestimos_totais > (
 ```
 
 > [!TIP]
-> Para analisar subconsultas, vá da mais interna à mais externa.
+> As consultas são executadas da mais interna à mais externa. Portanto, para entendê-las, é preciso seguir o mesmo raciocínio.
 
 Nesse exemplo, a subconsulta retorna a média da soma dos emrpréstimos dos livros de cada gênero. Assim, a consulta mais externa pode retornar o total de empréstimos por gênero, cujo total de empréstimos seja maior que a média de total de empréstimos.
 
-## Subconsultas com FROM e JOIN
+## Subconsultas com FROM
 
-Além de servirem como condição, subconsultas podem ser usadas com o FROM para permitir que seu retorno seja lido por consultas superiores.
+Além de servirem como condição, subconsultas podem ser usadas como tabelas para permitir que seu retorno seja lido por consultas superiores.
+
+Neste exemplo, usamos um FROM para usar os resultados da subconsulta como base para a primeira.
 
 ```sql
 SELECT 
-	costumers.name AS cliente,
-	sub.product_name AS produto,
-	sub.total AS total_de_compras
-FROM costumers
-JOIN ( /* INNER JOIN na subconsulta */
-	SELECT
-		customer_id,
-		product_name,
-	COUNT(*) AS total
-	FROM orders
-	GROUP BY customer_id, product_name
-) AS sub
-ON costumers.id = sub.customer_id;
+  sub.*  /* sub.* = Todas as colunas da subconsulta */
+FROM (
+  SELECT
+    customer_id,
+    product_name,
+    COUNT(*) AS total
+  FROM orders
+  GROUP BY customer_id, product_name
+) AS sub;
 ```
 
-Essa consulta gera uma tabela que mostra quantas vezes cada usuário comprou cada produto. Vamos entender cada passo:
+A subconsulta acessa a tabela orders e executa um GROUP BY para associar o id do cliente (customer_id) e o nome do produto (product_name) ao número de vezes que ele foi comprado (COUNT(*) AS total).
 
-- Para entender melhor, comecemos de dentro para fora, analisando a subconsulta abaixo:
-  ```sql
-	(
-		SELECT
-			customer_id,
-			product_name,
-		COUNT(*) AS total
-		FROM orders
-		GROUP BY customer_id, product_name
-	) AS sub
-  ```
-  Aqui, a consulta busca na tabela orders e usa um GROUP BY para associar o id do cliente (customer_id) e o nome do produto (product_name) ao número de vezes que ele foi comprado (COUNT(*) AS total).
-  Ex: Cliente_id | Nome do Produto | Total
-  Para pordermos acessá-la, ela é chamada de sub.
+A consulta externa apenas exibe todos esses valores.
 
-- A consulta externa
-	```sql
-	SELECT 
-		costumers.name AS cliente,
-		sub.product_name AS produto,
-		sub.total AS total_de_compras
-	FROM costumers
-	JOIN (
-		/* ... */
-	) AS sub
-	ON costumers.id = sub.customer_id;
-	```
+Ex: Cliente_id | Nome do Produto | Total
 
+## Subconsultas com JOIN
+
+É possível melhorar a consulta anterior adicionando o nome do usuário na consulta. Como a tabela orders não tem esse dado, podemos fazer um JOIN com a customers.
+
+Nesse exemplo, fazemos um INNER JOIN para pegar o nome do cliente e associá-lo com seu id, disponível na subconsulta.
+
+```sql
+SELECT 
+  customers.name AS cliente,
+  sub.product_name AS produto,
+  sub.total AS total_de_compras
+FROM customers
+JOIN ( /* INNER JOIN na subconsulta */
+  SELECT
+    customer_id,
+    product_name,
+    COUNT(*) AS total
+  FROM orders
+  GROUP BY customer_id, product_name
+) AS sub
+ON customers.id = sub.customer_id;
+```
+
+## Conclusão
+
+Subconsultas são muito úteis em consultas mais complexas, pois permite combinar várias condições diferentes num único código. No próximo tópico, melhoraremos ainda mais nossas consultas com views.
 
 [Anterior: Join](Join.md)
 <br>
