@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: Set the subtopics
-        run: ls
+        run: cd .. && python subtopics.py -a
