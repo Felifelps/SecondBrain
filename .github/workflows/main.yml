@@ -24,16 +24,6 @@ jobs:
       - name: Adicionando subtópicos
         run: python subtopics.py -a
 
-      # Checando se já houveram alterações
-      - name: Checando alterações
-        run: |
-          git add .
-          if git.diff --cached --exit-code;
-          then
-            echo "Nenhuma mudança detectada"
-            exit 0
-          fi
-
       # Faz commit no repositório com as alterações
       - name: Commitando as mudanças
         # As primeiras duas linhas são para setar o bot
