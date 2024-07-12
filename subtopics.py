@@ -131,8 +131,5 @@ def main():
         print(main_file, 'not found')
         sys.exit(1)
 
-
-# -a stands for auto
-
 if __name__ == "__main__":
     main()

@@ -1,19 +1,48 @@
 name: Subtopics
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  build: 
+  add-subtopics: 
     runs-on: ubuntu-latest
 
     steps:
+      # Checando o código
       - name: Verificar o código
         uses: actions/checkout@v2
-  
+
+      # Seta todo o ambiente
       - name: Configurar o ambiente Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
-      - name: Set the subtopics
-        run: ls && python subtopics.py -a
+      # Roda o comando para adicionar os subtópicos
+      - name: Adicionando subtópicos
+        run: python subtopics.py -a
+
+      # Checando se já houveram alterações
+      - name: Checando alterações
+        run: |
+          git add .
+          if git.diff --cached --exit-code;
+          then
+            echo "Nenhuma mudança detectada"
+            exit 0
+          fi
+
+      # Faz commit no repositório com as alterações
+      - name: Commitando as mudanças
+        # As primeiras duas linhas são para setar o bot
+        # das actions para fazer o push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m "Updated subtopics"
+          git push
+        # É necessário usar esse token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
