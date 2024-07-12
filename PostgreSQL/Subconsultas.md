@@ -56,7 +56,7 @@ JOIN ( /* INNER JOIN na subconsulta */
 	SELECT
 		customer_id,
 		product_name,
-	  COUNT(*) AS total
+	COUNT(*) AS total
 	FROM orders
 	GROUP BY customer_id, product_name
 ) AS sub
@@ -67,31 +67,31 @@ Essa consulta gera uma tabela que mostra quantas vezes cada usuário comprou cad
 
 - Para entender melhor, comecemos de dentro para fora, analisando a subconsulta abaixo:
   ```sql
-  (
-  	SELECT
-  		customer_id,
-  		product_name,
-  	  COUNT(*) AS total
-  	FROM orders
-  	GROUP BY customer_id, product_name
-  ) AS sub
+	(
+		SELECT
+			customer_id,
+			product_name,
+		COUNT(*) AS total
+		FROM orders
+		GROUP BY customer_id, product_name
+	) AS sub
   ```
   Aqui, a consulta busca na tabela orders e usa um GROUP BY para associar o id do cliente (customer_id) e o nome do produto (product_name) ao número de vezes que ele foi comprado (COUNT(*) AS total).
   Ex: Cliente_id | Nome do Produto | Total
   Para pordermos acessá-la, ela é chamada de sub.
 
 - A consulta externa
-```sql
-SELECT 
-	costumers.name AS cliente,
-	sub.product_name AS produto,
-	sub.total AS total_de_compras
-FROM costumers
-JOIN (
-	/* ... */
-) AS sub
-ON costumers.id = sub.customer_id;
-```
+	```sql
+	SELECT 
+		costumers.name AS cliente,
+		sub.product_name AS produto,
+		sub.total AS total_de_compras
+	FROM costumers
+	JOIN (
+		/* ... */
+	) AS sub
+	ON costumers.id = sub.customer_id;
+	```
 
 
 [Anterior: Join](Join.md)
