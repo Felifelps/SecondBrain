@@ -63,7 +63,7 @@ FROM (
 
 A subconsulta acessa a tabela orders e executa um GROUP BY para associar o id do cliente (customer_id) e o nome do produto (product_name) ao número de vezes que ele foi comprado (COUNT(*) AS total).
 
-A consulta externa apenas exibe todos esses valores.
+A consulta externa apenas exibe todos os valores da interna.
 
 Ex: Cliente_id | Nome do Produto | Total
 
