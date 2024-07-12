@@ -47,66 +47,52 @@ Nesse exemplo, a subconsulta retorna a média da soma dos emrpréstimos dos livr
 Além de servirem como condição, subconsultas podem ser usadas com o FROM para permitir que seu retorno seja lido por consultas superiores.
 
 ```sql
-SELECT
-  customers.name,
-  sub.product_name,
-  MAX(sub.total) AS max 
-FROM customers 
-JOIN (
-  SELECT
-    customer,
-    product_name,
-    COUNT(*) AS total
-  FROM orders
-  GROUP BY customer, product_name
-) as sub 
-ON customers.id = sub.customer 
-GROUP BY customers.name, sub.product_name 
-ORDER BY max DESC 
-LIMIT (
-  SELECT
-    COUNT(customer)
-  FROM (
-    SELECT DISTINCT customer
-    FROM orders
-    GROUP BY customer
-    HAVING customer IS NOT NULL
-  )
-);
+SELECT 
+	costumers.name AS cliente,
+	sub.product_name AS produto,
+	sub.total AS total_de_compras
+FROM costumers
+JOIN ( /* INNER JOIN na subconsulta */
+	SELECT
+		customer_id,
+		product_name,
+	  COUNT(*) AS total
+	FROM orders
+	GROUP BY customer_id, product_name
+) AS sub
+ON costumers.id = sub.customer_id;
 ```
 
-Essa consulta enorme gera uma tabela que retorna o produto mais comprado por cada usuário, e o número de vezes que foi comprado. Vamos entender cada passo:
+Essa consulta gera uma tabela que mostra quantas vezes cada usuário comprou cada produto. Vamos entender cada passo:
 
-- Há duas subconsultas nessa consulta. Vamos olhar a primeira:
+- Para entender melhor, comecemos de dentro para fora, analisando a subconsulta abaixo:
   ```sql
   (
-    SELECT
-      customer,
-      product_name,
-      COUNT(*) AS total
-    FROM orders
-    GROUP BY customer, product_name
-  ) as sub
+  	SELECT
+  		customer_id,
+  		product_name,
+  	  COUNT(*) AS total
+  	FROM orders
+  	GROUP BY customer_id, product_name
+  ) AS sub
   ```
-  Aqui, a consulta retorna o nome do cliente, o nome do produto e quantas vezes ele foi comprado por esse cliente.
-  Ex: Cliente 1 | Produto 1 | 2
-  A tabela é chamada de sub.
+  Aqui, a consulta busca na tabela orders e usa um GROUP BY para associar o id do cliente (customer_id) e o nome do produto (product_name) ao número de vezes que ele foi comprado (COUNT(*) AS total).
+  Ex: Cliente_id | Nome do Produto | Total
+  Para pordermos acessá-la, ela é chamada de sub.
 
-- A segunda subconsulta se refere ao parâmetro do LIMIT, que deve ser um único valor inteiro:
-  ```sql
-  LIMIT (
-    SELECT
-      COUNT(customer)
-    FROM (
-      SELECT DISTINCT customer
-      FROM orders
-      GROUP BY customer
-      HAVING customer IS NOT NULL
-    )
-  );
-  ```
-  Esta subconsulta tem outra subconsulta. A mais interna retorna todos os ids distintos da tabela orders.
-  A externa conta quantas linhas a interna retorna. Nesse caso, isso é usado para limitar a 
+- A consulta externa
+```sql
+SELECT 
+	costumers.name AS cliente,
+	sub.product_name AS produto,
+	sub.total AS total_de_compras
+FROM costumers
+JOIN (
+	/* ... */
+) AS sub
+ON costumers.id = sub.customer_id;
+```
+
 
 [Anterior: Join](Join.md)
 <br>
