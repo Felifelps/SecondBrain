@@ -3,3 +3,4 @@ save.bat
 **.env
 **.html
 .venv
+**.py
