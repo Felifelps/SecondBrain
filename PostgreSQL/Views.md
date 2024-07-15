@@ -108,6 +108,7 @@ DROP MATERIALIZED VIEW name;
 
 ## Conclusão
 
+Enfim, usar views facilita as consultas por permitir reutiliza-las das mais variadas formas. No próximo tópico, aprenderemos sobre índices.
 
 [Anterior: Subconsultas](Subconsultas.md)
 <br>
