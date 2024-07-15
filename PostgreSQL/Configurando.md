@@ -50,9 +50,20 @@ Para configurar seu ambiente PostgreSQL via SQL Shell, siga os seguintes passos:
 
     postgres=#
     ```
+6. Crie um banco de dados, caso não exista:
+
+   ```sql
+   CREATE DATABASE nomedatabase;
+   ```
+7. Agora conecte-se a ele usando:
+
+    ```sql
+    \c nomedatabase;
+    ```
+8. Para checar se tudo ocorreu bem, cheque as tabelas do seu database com `\d`.
 
     > [!NOTE]
-    > Você terá que fazer esse processo todas as vezes que abrir o SQL Shell
+    > Você terá que logar e se conectar ao database todas as vezes que abrir o SQL Shell
 
 ## pgAdmin
 
