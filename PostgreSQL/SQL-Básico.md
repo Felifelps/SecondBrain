@@ -112,10 +112,21 @@ Os mais utilizados do Postgres são:
 
 ## ALTER TABLE
 
-Ainda com o SQL Shell aberto, vamos alterar a tabela que criamos. Rode o seguinte comando:
+Ainda com o SQL Shell aberto, vamos alterar a tabela que criamos. 
+
+Rode o seguinte comando para renomear a tabela de `client` para `clients`:
 
 ```sql
 ALTER TABLE client
+RENAME TO clients;
+```
+
+Agora, para testar se funcionou, use o comando `\d` para listar os objetos do banco.
+
+Agora vamos adicionar a coluna `email` à tabela:
+
+```sql
+ALTER TABLE clients
 ADD email VARCHAR(200);
 ```
 
@@ -124,7 +135,7 @@ Agora rode o mesmo comando `SELECT` do exemplo anterior, e veja que a coluna `em
 Mas digamos que eu queira renomear a coluna `idade` para `sobrenome`. Para fazer isso, rode o seguinte:
 
 ```sql
-ALTER TABLE client
+ALTER TABLE clients
 RENAME COLUMN idade TO sobrenome;
 ```
 
@@ -133,14 +144,14 @@ Agora temos as colunas `nome`, `sobrenome` e `email`. Porém, a coluna `sobrenom
 Para mudar isso, basta rodar o seguinte código:
 
 ```sql
-ALTER TABLE client
+ALTER TABLE clients
 ALTER COLUMN sobrenome TYPE VARCHAR(255);
 ```
 
 Agora, digamos que eu tenha desistido da coluna `sobrenome` e quero excluí-la. Para fazer isso, rode:
 
 ```sql
-ALTER TABLE client
+ALTER TABLE clients
 DROP COLUMN sobrenome;
 ```
 
@@ -151,10 +162,10 @@ E pronto! Agora, se você usar o `SELECT` novamente, verá uma tabela vazia com 
 Mas uma tabela vazia, por enquanto, não é necessária. Vamos deletá-la do banco de dados:
 
 ```sql
-DROP TABLE client;
+DROP TABLE clients;
 ```
 
-E pronto! A tabela `client` foi excluída do database!
+E pronto! A tabela `clients` foi excluída do database!
 
 ## Conclusão
 
