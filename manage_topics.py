@@ -1,36 +1,36 @@
-import re
-import os
-import sys
-
-FILE = os.path.split(__file__)[-1]
-
-TOPICS_TITLE = '## Tópicos'
-TOPIC_PATTERN = '## .*\n'
-
-IGNORE_DIRS = ".venv", "__pycache__", ".git", "img"
-DOCSTRING = f"""
+"""
 # Auto topics generator
 
 This file generates a topics list on each .md file on a directory
 
 The sintax to use is:
 
-    `python {FILE} <directory> -r`
+    `python manage_topics.py <directory> -r`
 
     directory: The dir with the .md files.
     -r (optional): Removes the topics list instead of adding
 
-    `python {FILE} -a -r`
+    `python manage_topics.py -a -r`
 
     -a: Stands for "all". Mades the process to all the dirs
     -r (optional): Removes the topics list instead of adding
 
-    `python {FILE} -h`
+    `python manage_topics.py -h`
 
     -h: Stands for "help". Show this message
 """
 
-ERROR_MESSAGE = '-'*15 + '\nError: {}\n' + f'Try "python {FILE} -h" for help with the sintax\n' + '-'*15
+import re
+import os
+import sys
+
+TOPICS_TITLE = '## Tópicos'
+TOPIC_PATTERN = '## .*\n'
+
+IGNORE_DIRS = ".venv", "__pycache__", ".git", "img"
+DOCSTRING = __doc__
+
+ERROR_MESSAGE = '\nError: {}\n' + f'Try "python manage_topics.p -h" for help with the sintax\n'.center(30, '-')
 
 def generate_slug(string: str):
     forbidden_chars = '.?'
