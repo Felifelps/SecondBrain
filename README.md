@@ -1,6 +1,8 @@
 # Second Brain
 
-Bem-vindo ao repositório **Second Brain**! Este é um espaço dedicado a anotações sobre programação. Aqui, registro e compartilho os conhecimentos que adquiri ao longo dos meus estudos na área.
+Este é um espaço dedicado a anotações sobre programação. Aqui, registro e compartilho os conhecimentos que adquiri ao longo dos meus estudos na área.
+
+Nem sempre vou fundo nos tópicos. Esse repositório serve, como o nome sugere, como uma forma de guardar meus conhecimentos. Caso aprenda algo novo, virei aqui adicionar ou corrigir.
 
 Sinta-se à vontade para usar, corrigir ou sugerir melhorias! Espero que este conteúdo seja útil para você.
 
