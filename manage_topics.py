@@ -30,7 +30,7 @@ TOPIC_PATTERN = '## .*\n'
 IGNORE_DIRS = ".venv", "__pycache__", ".git", "img"
 DOCSTRING = __doc__
 
-ERROR_MESSAGE = '\nError: {}\n' + f'Try "python manage_topics.p -h" for help with the sintax\n'.center(30, '-')
+ERROR_MESSAGE = '\nError: {}\nTry "python manage_topics.py -h" for help with the sintax\n'
 
 def generate_slug(string: str):
     forbidden_chars = '.?'
