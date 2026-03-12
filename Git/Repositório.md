@@ -6,7 +6,7 @@
 
 ## O que é Repositório?
 
-Repositórios é um espaço, ou diretório, onde os arquivos do projeto são armazenados e gerenciados. Para iniciar um repositório, crie uma pasta chamada `MyRepo`, abra o terminal ou o Git Bash nela, e rode o seguinte comando:
+Repositório é um espaço, ou diretório, onde os arquivos do projeto são armazenados e gerenciados. Para iniciar um repositório, crie uma pasta chamada `MyRepo`, abra o terminal ou o Git Bash nela, e rode o seguinte comando:
 
 ```bash
 git init
